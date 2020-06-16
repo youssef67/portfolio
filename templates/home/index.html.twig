@@ -1,0 +1,273 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Youssef Moudni{% endblock %}
+
+{% block body %}
+<header class="header">
+
+    {% include "navbar.html.twig" %}
+    <div class="header-intro theme-bg-primary text-white py-5">
+        <div class="container">
+            <div class="profile-teaser media flex-column flex-md-row">
+                <img class="profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto"
+                    src="{{asset("images/profile.jpg") }}" alt="">
+                <div class="media-body text-center text-md-left">
+                    <div class="lead" style="font-size: 25px;">Youssef Moudni</div>
+                    <h2 class="mt-0 display-0 font-weight-bold">Développeur PHP / SYMFONY 5</h2>
+                    <div class="bio mb-3">Après plusieurs années dans le milieu de l'assurance, je me suis découvert une
+                        passion pour la programmation.
+                        Dans un premier temps sur <a class="link-on-bg" href="https://openclassrooms.com/"
+                            target="_blank">OpenClassRoom</a> j'ai ensuite intégré l'école <a class="link-on-bg"
+                            href="https://www.wildcodeschool.com/fr-FR" target="_blank">Wild Code School</a> pendant 5
+                        mois.
+                        Après un stage et une première expérience de développeur chez <a class="link-on-bg"
+                            href="https://www.movidone.com/" target="_blank">Movidone</a>, je souhaite vivement
+                        continuer mon apprentissage.
+                    </div>
+                    <div class="bio mb-3">
+                        Pour en savoir plus n'hésitez pas à consulter mes <a class="link-on-bg" href="">projets</a> ou
+                        mon <a class="link-on-bg" href="">C.V</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="skills-section section py-5">
+    <div class="container">
+        <h3 class="section-title font-weight-bold text-center mb-3">Mes compétences</h3>
+        <div class="section-intro mx-auto text-center mb-5 text-secondary">Ayant exercé dans plusieurs domaines
+            professionnels (banque/assurance, entreprenariat, sport).
+            j'ai acquis une réelle polyvalence et une forte adaptabilité, me permettant de monter rapidement en
+            autonomie dans mon travail.
+            Ci-dessous une liste rapide de mes principales compétences. Pour en savoir plus, n'hésitez pas à faire un
+            tour sur mon <a href="resume.html" style="color: #434E5E;">C.V en ligne</a>.</div>
+        <div class="skills-blocks mx-auto pt-5">
+            <div class="row">
+                <div class="skills-block col-12 col-lg-4 mb-5 mb-3 mb-lg-0">
+                    <div class="skills-block-inner bg-white shadow-sm py-4 px-5 position-relative">
+                        <h4 class="skills-cat text-center mb-3 mt-5">Frontend</h4>
+                        <div class="skills-icon-holder position-absolute d-inline-block rounded-circle text-center">
+                            <img class="skills-icon" src="{{asset("images/frontend-icon.svg") }}">
+                        </div>
+                        <ul class="skills-list list-unstyled text-secondary">
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Javascript</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Bootstrap</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>HTML/CSS</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Figma</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills-block col-12 col-lg-4 mb-5 mb-3 mb-lg-0">
+                    <div class="skills-block-inner bg-white shadow-sm py-4 px-5 position-relative">
+                        <h4 class="skills-cat text-center mb-3 mt-5">Backend</h4>
+                        <div class="skills-icon-holder position-absolute d-inline-block rounded-circle text-center">
+                            <img class="skills-icon" src="{{ asset("images/backend-icon.svg") }}">
+                        </div>
+                        <ul class="skills-list list-unstyled text-secondary">
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>PHP</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>SYMFONY 5</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>CakePHP</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills-block col-12 col-lg-4">
+                    <div class="skills-block-inner bg-white shadow-sm py-4 px-5 position-relative">
+                        <h4 class="skills-cat text-center mb-3 mt-5">Autres</h4>
+                        <div class="skills-icon-holder position-absolute d-inline-block rounded-circle text-center">
+                            <img class="skills-icon" src="{{ asset("images/other-skills-icon.svg") }}">
+                        </div>
+                        <ul class="skills-list list-unstyled text-secondary">
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Relations commerciales</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Gestion de projets</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>SCRUM</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Wordpress</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section py-5  cd-horizontal-timeline">
+    <div class="timeline">
+        <div class="events-wrapper">
+            <div class="events">
+                <ol>
+                    <li><a href="#0" data-date="01/12/2010" class="selected">2016</a></li>
+                    <li><a href="#0" data-date="01/12/2016">Sept. 2017</a></li>
+                    <li><a href="#0" data-date="01/01/2019">Fév. 2018</a></li>
+                    <li><a href="#0" data-date="01/12/2021">Août 2018</a></li>
+                    <li><a href="#0" data-date="01/12/2025">Août 2018</a></li>
+                </ol>
+
+                <span class="filling-line" aria-hidden="true"></span>
+            </div> <!-- .events -->
+        </div> <!-- .events-wrapper -->
+
+        <ul class="cd-timeline-navigation">
+            <li><a href="#0" class="prev inactive" style="background-color: #f06a4e;">Prev</a></li>
+            <li><a href="#0" class="next" style="background-color: #f06a4e;">Next</a></li>
+        </ul> <!-- .cd-timeline-navigation -->
+    </div> <!-- .timeline -->
+
+    <div class="events-content">
+        <ol>
+            <li class="selected" data-date="01/12/2010">
+                <h2>TK</h2>
+                <em>June 14th, 2016</em>
+                <p>
+                    AMA issues CSAPH 2-A-16, “Human Environmental Effects of LED Community Lighting.”
+                </p>
+            </li>
+
+            <li data-date="01/12/2016">
+                <h2>TK</h2>
+                <em>June 21st, 2016</em>
+                <p>
+                    CNN publishes “Doctors issue warning about LED streetlighting.”
+                </p>
+            </li>
+
+            <li data-date="01/01/2019">
+                <h2>TK</h2>
+                <em>June 24th, 2016</em>
+                <p>
+                    In response to AMA Report 2-A-16, IES Issues “IES Board Position on AMA CSAPH Report 2-A-16.
+                </p>
+            </li>
+
+            <li data-date="01/12/2021">
+                <h2>TK</h2>
+                <em>June 21-30th, 2016</em>
+                <p>
+                    Various entities in the lighting community issue responses to AMA Report 2-A-16.
+                </p>
+            </li>
+
+            <li data-date="01/10/2023">
+                <h2>TK</h2>
+                <em>July, 2016</em>
+                <p>
+                    Lighting publications report on the AMA controversy.
+                </p>
+            </li>
+            <li data-date="01/12/2025">
+                <h2>TK</h2>
+                <em>July, 2016</em>
+                <p>
+                    Lighting publications report on the AMA controversy.
+                </p>
+            </li>
+        </ol>
+    </div> <!-- .events-content -->
+</section>
+
+<section class="section-featured-projects py-5 theme-bg-primary">
+    <div class="container">
+        <h3 class="section-title font-weight-bold text-center mb-5" style="color: white;">Mes projets actuels</h3>
+
+        <div class="project-cards row mb-5">
+            <div class="col-12 col-lg-6">
+                <div class="card rounded-0 border-0 shadow-sm mb-5 mb-lg-0">
+                    <div class="card-img-container position-relative">
+                        <img class="card-img-top rounded-0" src="{{ asset("images/projects/project-2-thumb.jpg") }}"
+                            alt="">
+                        <div class="card-img-overlay overlay-logo text-center">
+                            <div class="project-logo"><img class="img-fluid w-50"
+                                    src="{{ asset("images/logos/vibin-project.svg") }}"></div>
+                        </div>
+                        <a class="card-img-overlay overlay-content text-left p-lg-4" href="project.html">
+                            <h5 class="card-title font-weight-bold">Vibin</h5>
+                            <p class="card-text">Outil à destination des streamers permettant à leurs communautés de
+                                soumettre et voter pour les musiques à diffuser pendant le stream</p>
+                        </a>
+                    </div>
+                    <div class="card-body pb-0">
+                        <h4 class="card-title text-truncate text-center mb-0"><a href="project.html">Landing page</a>
+                        </h4>
+                    </div>
+
+                    <div class="card-footer border-0 text-center bg-white pb-4">
+                        <ul class="list-inline mb-0 mx-auto">
+                            <li class="list-inline-item"><span class="badge badge-secondary badge-pill">HTML/CSS</span>
+                            </li>
+                            <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span>
+                            </li>
+                            <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span>
+                            </li>
+                            <li class="list-inline-item"><span
+                                    class="badge badge-secondary badge-pill">Javascript</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card rounded-0 border-0 shadow-sm mb-5 mb-lg-0">
+                    <div class="card-img-container position-relative">
+                        <img class="card-img-top rounded-0" src="{{ asset("images/projects/project-2-thumb.jpg") }}"
+                            alt="">
+                        <div class="card-img-overlay overlay-logo text-center">
+                            <div class="project-logo"><img class="img-fluid w-50"
+                                    src="{{ asset("images/logos/udemy-project.svg") }}"></div>
+                        </div>
+                        <a class="card-img-overlay overlay-content text-left p-lg-4" href="project.html">
+                            <h5 class="card-title font-weight-bold">Cours de programmations</h5>
+                            <p class="card-text">Avant de rester au niveau, je réalise régulièrement des tutoriels pour
+                                me maintenir à niveau, ou apprendre de nouvelles technologies</p>
+                        </a>
+                    </div>
+                    <div class="card-body pb-0">
+                        <h4 class="card-title text-truncate text-center mb-0"><a href="project.html">Cours/Tutoriels</a>
+                        </h4>
+                    </div>
+
+                    <div class="card-footer border-0 text-center bg-white pb-4">
+                        <ul class="list-inline mb-0 mx-auto">
+                            <li class="list-inline-item"><span class="badge badge-secondary badge-pill">POO</span>
+                            </li>
+                            <li class="list-inline-item"><span
+                                    class="badge badge-secondary badge-pill">JavaScript</span>
+                            </li>
+                            <li class="list-inline-item"><span class="badge badge-secondary badge-pill">SYMFONY 5</span>
+                            </li>
+                            <li class="list-inline-item"><span class="badge badge-secondary badge-pill">GITHUB</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a class="theme-btn-on-bg btn" href="projects.html" style="font-size: 2rem !important;">Voir tous mes projets</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-cta py-5 text-white">
+    <div class="container">
+        <div class="text-center">
+            <img class="profile-small d-inline-block mx-auto rounded-circle mb-2" src="{{ asset("/images/profile.jpg") }}" alt="">
+        </div>
+        <h3 class="section-title font-weight-bold text-center mb-2">Intéressé par mon profil pour intégrer votre équipe ?</h3>
+        <div class="section-intro mx-auto text-center mb-3 text-secondary">
+            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg" href="#">you.moudni@gmail.com</a> ou utiliser le formulaire de contact
+        <div class="text-center">
+            <a class="theme-btn-on-bg btn" href="contact.html" style="font-size: 2rem !important;">Contactez moi</a>
+        </div>
+    </div><!--//container-->
+</section>
+
+
+
+
+
+<footer class="footer text-light text-center py-2">
+    <small class="copyright">Template Copyright &copy; <a class="text-light" href="https://themes.3rdwavemedia.com/"
+            target="_blank">3rd Wave Media</a></small>
+</footer>
+{% endblock %}
