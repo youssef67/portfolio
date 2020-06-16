@@ -6,7 +6,7 @@
 <header class="header">
 
     {% include "navbar.html.twig" %}
-    <div class="header-intro theme-bg-primary text-white py-5">
+    <div class="header-intro theme-bg-primary text-white py-5" style="background-image: image(public/images/ligne-code.jpg)">
         <div class="container">
             <div class="profile-teaser media flex-column flex-md-row">
                 <img class="profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto"
@@ -36,7 +36,8 @@
 
 <section class="skills-section section py-5">
     <div class="container">
-        <h3 class="section-title font-weight-bold text-center mb-3">Mes compétences</h3>
+        <div class="divider"><span></span><span>Mes compétences</span><span></span></div>
+
         <div class="section-intro mx-auto text-center mb-5 text-secondary">Ayant exercé dans plusieurs domaines
             professionnels (banque/assurance, entreprenariat, sport).
             j'ai acquis une réelle polyvalence et une forte adaptabilité, me permettant de monter rapidement en
@@ -80,7 +81,7 @@
                             <img class="skills-icon" src="{{ asset("images/other-skills-icon.svg") }}">
                         </div>
                         <ul class="skills-list list-unstyled text-secondary">
-                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Relations commerciales</li>
+                            <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Commercial</li>
                             <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Gestion de projets</li>
                             <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>SCRUM</li>
                             <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i>Wordpress</li>
@@ -92,78 +93,67 @@
     </div>
 </section>
 
-<section class="section py-5  cd-horizontal-timeline">
-    <div class="timeline">
-        <div class="events-wrapper">
-            <div class="events">
-                <ol>
-                    <li><a href="#0" data-date="01/12/2010" class="selected">2016</a></li>
-                    <li><a href="#0" data-date="01/12/2016">Sept. 2017</a></li>
-                    <li><a href="#0" data-date="01/01/2019">Fév. 2018</a></li>
-                    <li><a href="#0" data-date="01/12/2021">Août 2018</a></li>
-                    <li><a href="#0" data-date="01/12/2025">Août 2018</a></li>
-                </ol>
+<div class="divider"><span></span><span>Mon parcours</span><span></span></div>
 
-                <span class="filling-line" aria-hidden="true"></span>
-            </div> <!-- .events -->
-        </div> <!-- .events-wrapper -->
-
-        <ul class="cd-timeline-navigation">
-            <li><a href="#0" class="prev inactive" style="background-color: #f06a4e;">Prev</a></li>
-            <li><a href="#0" class="next" style="background-color: #f06a4e;">Next</a></li>
-        </ul> <!-- .cd-timeline-navigation -->
-    </div> <!-- .timeline -->
-
-    <div class="events-content">
-        <ol>
-            <li class="selected" data-date="01/12/2010">
-                <h2>TK</h2>
-                <em>June 14th, 2016</em>
-                <p>
-                    AMA issues CSAPH 2-A-16, “Human Environmental Effects of LED Community Lighting.”
-                </p>
-            </li>
-
-            <li data-date="01/12/2016">
-                <h2>TK</h2>
-                <em>June 21st, 2016</em>
-                <p>
-                    CNN publishes “Doctors issue warning about LED streetlighting.”
-                </p>
-            </li>
-
-            <li data-date="01/01/2019">
-                <h2>TK</h2>
-                <em>June 24th, 2016</em>
-                <p>
-                    In response to AMA Report 2-A-16, IES Issues “IES Board Position on AMA CSAPH Report 2-A-16.
-                </p>
-            </li>
-
-            <li data-date="01/12/2021">
-                <h2>TK</h2>
-                <em>June 21-30th, 2016</em>
-                <p>
-                    Various entities in the lighting community issue responses to AMA Report 2-A-16.
-                </p>
-            </li>
-
-            <li data-date="01/10/2023">
-                <h2>TK</h2>
-                <em>July, 2016</em>
-                <p>
-                    Lighting publications report on the AMA controversy.
-                </p>
-            </li>
-            <li data-date="01/12/2025">
-                <h2>TK</h2>
-                <em>July, 2016</em>
-                <p>
-                    Lighting publications report on the AMA controversy.
-                </p>
-            </li>
-        </ol>
-    </div> <!-- .events-content -->
+<section class="section py-5">
+    <ul class="timeline">
+	<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">Banque/Assurance</span>
+				<span class="time-wrapper"><span class="time">Avant 2016</span></span>
+			</div>
+			<div class="desc">J'ai exercé dans plusieurs entreprises en occupant des postes en relation avec les clients ou assurés, me permettant de développer mes capacités relationnelles et commerciales</div>
+		</div>
+	</li>
+	<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">Educateur sportif</span>
+				<span class="time-wrapper"><span class="time">2016 - 2017</span></span>
+			</div>
+			<div class="desc">
+                Avec un passé de sportif et la proposition d'en faire un métier, j'ai décidé d'enseigner le Taekwondo au sein d'une association sportive.
+                J'ai pu ainsi gagné un temps libre que j'ai mis à profit pour débuter une auto-formation dans le web sur des sites comme openclassrooms.
+            </div>
+		</div>
+	</li>
+	<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">Etudiant</span>
+				<span class="time-wrapper"><span class="time">2017 - 2018</span></span>
+			</div>
+			<div class="desc">
+                Avec l'auto-formation, j'ai envisagé de faire une reconversion dans le milieu du web. Pour cela, j'ai intégré l'école Wild Code School qui forme sur 9 mois au métier du web.accordion
+                J'ai pu ainsi découvrir la POO, Symfony 3 et d'autres technologies. Un stage de 4 mois m'a permis de conforter mes connaissances et mon choix de carrière.
+            </div>
+		</div>
+	</li>
+	<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">Développeur web</span>
+				<span class="time-wrapper"><span class="time">2018 - 2019</span></span>
+			</div>
+			<div class="desc">
+                Suite à mon stage, j'ai intégré une équipe de développeur chez Movidone. J'ai pu ainsi découvrir les nombreuses facettes du métier de développeur à travers des projets réalisés sous cakePHP 2.
+            </div>
+		</div>
+    </li>
+    <li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">CEO et co-fondateur</span>
+				<span class="time-wrapper"><span class="time">2019 - 2020</span></span>
+			</div>
+			<div class="desc">
+               De nature entreprenante et suite à des rencontres dans mon milieu professionnels, j'ai choisi de réaliser un projet de longue date qui était développer un outil pour les streamers en Node/react.
+               Malgré notre investissement, nous n'avons pa pu aller plus loin (crise sanitaire + produit qui ne réponds pas totalement aux attentes du marché). J'en garde une expérience très enrichissante. 
+            </div>
+		</div>
+	</li>
+</ul>
 </section>
 
 <section class="section-featured-projects py-5 theme-bg-primary">
@@ -243,7 +233,7 @@
             </div>
         </div>
         <div class="text-center">
-            <a class="theme-btn-on-bg btn" href="projects.html" style="font-size: 2rem !important;">Voir tous mes projets</a>
+            <a class="theme-btn-on-bg btn" href="projects.html">Voir tous mes projets</a>
         </div>
     </div>
 </section>
@@ -255,11 +245,12 @@
         </div>
         <h3 class="section-title font-weight-bold text-center mb-2">Intéressé par mon profil pour intégrer votre équipe ?</h3>
         <div class="section-intro mx-auto text-center mb-3 text-secondary">
-            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg" href="#">you.moudni@gmail.com</a> ou utiliser le formulaire de contact
-        <div class="text-center">
-            <a class="theme-btn-on-bg btn" href="contact.html" style="font-size: 2rem !important;">Contactez moi</a>
+            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg" href="#">you.moudni@gmail.com</a> 
         </div>
-    </div><!--//container-->
+        <div class="map-responsive mx-auto text-center mb-3" >
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.2501223653157!2d7.700120515528012!3d48.58590952780767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796b7d3bc1a93c5%3A0x8aa17f761d59bab6!2s10%20Rue%20Lucie%20Berger%2C%2067200%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1592313167640!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>    
+        </div>
+    </div>
 </section>
 
 
