@@ -26,21 +26,21 @@
                         </li>
                     {% endif %}
                     {% if route == 'home' %}
-                    <li class="nav-item mr-lg-3">
-                        <a class="nav-link" href="#competences">Compétences</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item mr-lg-3">
-                        <a class="nav-link" href="{{ path('home') }}#competences">Compétences <span class="sr-only"></span></a>
-                    </li>
-                    {% endif %}
-                    {% if route != 'home' %}
                         <li class="nav-item mr-lg-3">
-                            <a class="nav-link" href="{{ path('home') }}#parcours">Mon parcours</a>
+                            <a class="nav-link" href="#competences">Compétences</a>
                         </li>
                     {% else %}
                         <li class="nav-item mr-lg-3">
-                            <a class="nav-link" href="#parcours">Mon parcours</a>
+                            <a class="nav-link" href="{{ path('home') }}#competences">Compétences <span class="sr-only"></span></a>
+                        </li>
+                    {% endif %}
+                    {% if route != 'home' %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="{{ path('home') }}#parcours">Parcours</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="#parcours">Parcours</a>
                         </li>
                     {% endif %}
                     {% if route == 'projects' %}
