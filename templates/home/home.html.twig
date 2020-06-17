@@ -34,7 +34,7 @@
     </div>
 </header>
 
-<section class="skills-section section py-5">
+<section class="skills-section section py-5" id="competences">
     <div class="container">
         <div class="divider"><span></span><span>Mes compétences</span><span></span></div>
 
@@ -95,18 +95,44 @@
 
 <div class="divider"><span></span><span>Mon parcours</span><span></span></div>
 
-<section class="section py-5">
+<section class="section py-5" id="parcours">
     <ul class="timeline">
-	<li>
+    <li>
+        <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="flag">CEO et co-fondateur</span>
+                <span class="time-wrapper"><span class="time">2019 - 2020</span></span>
+            </div>
+            <div class="desc">
+                De nature entreprenante et suite à des rencontres dans mon milieu professionnels, j'ai choisi de réaliser un projet de longue date qui était développer un outil pour les streamers en Node/react.
+                Malgré notre investissement, nous n'avons pa pu aller plus loin (crise sanitaire + produit qui ne réponds pas totalement aux attentes du marché). J'en garde une expérience très enrichissante. 
+            </div>
+        </div>
+    </li>
+    <li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">Développeur web</span>
+				<span class="time-wrapper"><span class="time">2018 - 2019</span></span>
+			</div>
+			<div class="desc">
+                Suite à mon stage, j'ai intégré une équipe de développeur chez Movidone. J'ai pu ainsi découvrir les nombreuses facettes du métier de développeur à travers des projets réalisés sous cakePHP 2.
+            </div>
+		</div>
+    </li>
+    <li>
 		<div class="direction-r">
 			<div class="flag-wrapper">
-				<span class="flag">Banque/Assurance</span>
-				<span class="time-wrapper"><span class="time">Avant 2016</span></span>
+				<span class="flag">Etudiant</span>
+				<span class="time-wrapper"><span class="time">2017 - 2018</span></span>
 			</div>
-			<div class="desc">J'ai exercé dans plusieurs entreprises en occupant des postes en relation avec les clients ou assurés, me permettant de développer mes capacités relationnelles et commerciales</div>
+			<div class="desc">
+                Avec l'auto-formation, j'ai envisagé de faire une reconversion dans le milieu du web. Pour cela, j'ai intégré l'école Wild Code School qui forme sur 9 mois au métier du web.accordion
+                J'ai pu ainsi découvrir la POO, Symfony 3 et d'autres technologies. Un stage de 4 mois m'a permis de conforter mes connaissances et mon choix de carrière.
+            </div>
 		</div>
-	</li>
-	<li>
+    </li>
+    <li>
 		<div class="direction-l">
 			<div class="flag-wrapper">
 				<span class="flag">Educateur sportif</span>
@@ -121,44 +147,21 @@
 	<li>
 		<div class="direction-r">
 			<div class="flag-wrapper">
-				<span class="flag">Etudiant</span>
-				<span class="time-wrapper"><span class="time">2017 - 2018</span></span>
+				<span class="flag">Banque/Assurance</span>
+				<span class="time-wrapper"><span class="time">Avant 2016</span></span>
 			</div>
-			<div class="desc">
-                Avec l'auto-formation, j'ai envisagé de faire une reconversion dans le milieu du web. Pour cela, j'ai intégré l'école Wild Code School qui forme sur 9 mois au métier du web.accordion
-                J'ai pu ainsi découvrir la POO, Symfony 3 et d'autres technologies. Un stage de 4 mois m'a permis de conforter mes connaissances et mon choix de carrière.
-            </div>
-		</div>
-	</li>
-	<li>
-		<div class="direction-l">
-			<div class="flag-wrapper">
-				<span class="flag">Développeur web</span>
-				<span class="time-wrapper"><span class="time">2018 - 2019</span></span>
-			</div>
-			<div class="desc">
-                Suite à mon stage, j'ai intégré une équipe de développeur chez Movidone. J'ai pu ainsi découvrir les nombreuses facettes du métier de développeur à travers des projets réalisés sous cakePHP 2.
-            </div>
-		</div>
-    </li>
-    <li>
-		<div class="direction-r">
-			<div class="flag-wrapper">
-				<span class="flag">CEO et co-fondateur</span>
-				<span class="time-wrapper"><span class="time">2019 - 2020</span></span>
-			</div>
-			<div class="desc">
-               De nature entreprenante et suite à des rencontres dans mon milieu professionnels, j'ai choisi de réaliser un projet de longue date qui était développer un outil pour les streamers en Node/react.
-               Malgré notre investissement, nous n'avons pa pu aller plus loin (crise sanitaire + produit qui ne réponds pas totalement aux attentes du marché). J'en garde une expérience très enrichissante. 
-            </div>
+			<div class="desc">J'ai exercé dans plusieurs entreprises en occupant des postes en relation avec les clients ou assurés, me permettant de développer mes capacités relationnelles et commerciales</div>
 		</div>
 	</li>
 </ul>
+<div class="text-center" style="margin-top: 30px;">
+    <a class="theme-btn-on-bg btn" href="{{path("resume")}}">Visualiser/Télécharger mon C.V</a>
+</div>
 </section>
 
-<section class="section-featured-projects py-5 theme-bg-primary">
+<section class="section-featured-projects py-5 theme-bg-primary" id="projets">
     <div class="container">
-        <h3 class="section-title font-weight-bold text-center mb-5" style="color: white;">Mes projets actuels</h3>
+        <h3 class="section-title font-weight-bold text-center mb-5" style="color: white;">Réalisations - Programmation</h3>
 
         <div class="project-cards row mb-5">
             <div class="col-12 col-lg-6">
@@ -232,20 +235,20 @@
                 </div>
             </div>
         </div>
-        <div class="text-center">
+        {# <div class="text-center">
             <a class="theme-btn-on-bg btn" href="projects.html">Voir tous mes projets</a>
-        </div>
+        </div> #}
     </div>
 </section>
 
-<section class="section-cta py-5 text-white">
+<section class="section-cta py-5" id="contact">
     <div class="container">
         <div class="text-center">
             <img class="profile-small d-inline-block mx-auto rounded-circle mb-2" src="{{ asset("/images/profile.jpg") }}" alt="">
         </div>
         <h3 class="section-title font-weight-bold text-center mb-2">Intéressé par mon profil pour intégrer votre équipe ?</h3>
         <div class="section-intro mx-auto text-center mb-3 text-secondary">
-            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg" href="#">you.moudni@gmail.com</a> 
+            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg" href="mailto:you.moudni@gmail.com">you.moudni@gmail.com</a> 
         </div>
         <div class="map-responsive mx-auto text-center mb-3" >
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.2501223653157!2d7.700120515528012!3d48.58590952780767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796b7d3bc1a93c5%3A0x8aa17f761d59bab6!2s10%20Rue%20Lucie%20Berger%2C%2067200%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1592313167640!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>    

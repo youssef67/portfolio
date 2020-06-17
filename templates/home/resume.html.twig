@@ -1,0 +1,314 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}mon C.V - Youssef Moudni{% endblock %}
+
+{% block body %}
+    <header class="header"> 
+		{% include "navbar.html.twig" %}
+        <div class="header-intro header-intro-resume theme-bg-primary text-white py-5">
+	        <div class="container position-relative">
+		        <h2 class="page-heading mb-3">Mon C.V</h2>
+		        <a class="btn theme-btn-on-bg download-resume position-absolute font-weight-bold mx-auto" href="{{ path('download_resume')}}"><i class="fas fa-download mr-2"></i>Télécharger mon C.V en PDF</a>
+	        </div>
+        </div>
+    </header>
+     
+    <article class="resume-wrapper text-center position-relative">
+	    <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
+		    <header class="resume-header pt-4 pt-md-0">
+			    <div class="media flex-column flex-md-row">
+				    <img class="mr-3 img-fluid picture mx-auto" src="{{ asset("images/profile.jpg") }}" alt="">
+				    <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
+					    <div class="primary-info">
+						    <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">Youssef moudni</h1>
+						    <div class="title mb-3">Developpeur PHP / Symfony 5</div>
+						    <ul class="list-unstyled">
+							    <li class="mb-2"><a href="mailto:you.moudni@gmail.com"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>you.moudni@gmail.com</a></li>
+							    <li><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>06 68 73 59 37</a></li>
+						    </ul>
+					    </div>
+					    <div class="secondary-info ml-md-auto mt-2">
+						    <ul class="resume-social list-unstyled">
+				                <li class="mb-3"><a href="https://www.linkedin.com/in/youssef-moudni"><span class="fa-container text-center mr-2"><i class="fab fa-linkedin-in fa-fw"></i></span>linkedin.com/in/youssef-moudni</a></li>
+				                <li class="mb-3"><a href="https://github.com/youssef67"><span class="fa-container text-center mr-2"><i class="fab fa-github-alt fa-fw"></i></span>github.com/youssef67</a></li>
+				                <li><a href="#"><span class="fa-container text-center mr-2"><i class="fas fa-globe"></i></span>youssef-moudni.com</a></li>
+						    </ul>
+					    </div>
+					    
+				    </div>
+			    </div>
+		    </header>
+		    <div class="resume-body p-5">
+			    <section class="resume-section summary-section mb-5">
+				    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Qui je suis ?</h2>
+				    <div class="resume-section-content">
+					    <p class="mb-0">Summarise your career here. <a class="text-reset">
+							Après plusieurs années dans le milieu de l'assurance, au poste de commercial (front-end) et gestionnaire de contrat (back-end), j'ai acquis une connaissance certaine du milieu professionnel.  Ces expériences m'ont poussé à franchir le pas de l'entreprenariat, en ouvrant une entreprise dans le  milieu de l'import/export. Cette expérience fut riche en enseignements tant sur le plan humain que professionnel .				    </div>
+			    </section>
+			    <div class="row">
+				    <div class="col-lg-9">
+					    <section class="resume-section experience-section mb-5">
+						    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Expériences professionnelles</h2>
+						    <div class="resume-section-content">
+							    <div class="resume-timeline position-relative">
+								    <article class="resume-timeline-item position-relative pb-5">
+									    <div class="resume-timeline-item-header mb-2">
+										    <div class="d-flex flex-column flex-md-row">
+										        <h3 class="resume-position-title font-weight-bold mb-1">Co-fondateur et CEO</h3>
+										        <div class="resume-company-name ml-auto">VIBIN</div>
+										    </div><!--//row-->
+										    <div class="resume-position-time">Septembre 2019 - Février 2020</div>
+									    </div><!--//resume-timeline-item-header-->
+									    <div class="resume-timeline-item-desc">
+										    <p>L'idée était de lancer un outil à destination des créateurs de contenus qui diffusent en direct sur des plateformes de streaming. L'outil devait permettre à leurs communautés de choisir et voter pour les musiques à diffuser pendant un stream.</p>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisations :</h4>
+										    <p>En phase de lancement, notre mission première était de vérifier la faisabilité du projet</p>
+										    <ul>
+											    <li>Création du buisness model et du buisness plan</li>
+											    <li>Lancement de la landing page avec récupération des contacts</li>
+											    <li>Mise en relation avec les acteurs de l'écosystème startup (SEMIA, Tango&ampScan)</li>
+											    <li>Développement du POC</li>
+										    </ul>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies/méthodes utilisées :</h4>
+										    <ul class="list-inline">
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">HTML/CSS</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Figma</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Trello</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">MySQL</span></li>
+										    </ul>
+									    </div>
+								    </article>
+								    <article class="resume-timeline-item position-relative pb-5">
+									    
+									    <div class="resume-timeline-item-header mb-2">
+										    <div class="d-flex flex-column flex-md-row">
+										        <h3 class="resume-position-title font-weight-bold mb-1">Développeur back-end</h3>
+										        <div class="resume-company-name ml-auto">Movidone</div>
+										    </div><!--//row-->
+										    <div class="resume-position-time">Août 2018 - Août 2019</div>
+									    </div><!--//resume-timeline-item-header-->
+									    <div class="resume-timeline-item-desc">
+										    <p>Mon rôle au sein d'une équipe de 6 développeurs, était de répondre au cahier des charges transmis par le Lead-développeur en développant les fonctionnalités demandées.</p>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisations :</h4>
+										    <p>Création d'une plateforme E-santé (TimeLink) sous cakePHP 2 dans l'optique d'une incubation chez SEMIA</p>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+										    <ul class="list-inline">
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">CakePHP 2</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mysql</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Html/CSS</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">GIT</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Javascript</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">SCRUM</span></li>
+										    </ul>
+									    </div>
+								    </article>
+								    <article class="resume-timeline-item position-relative pb-5">
+									    <div class="resume-timeline-item-header mb-2">
+										    <div class="d-flex flex-column flex-md-row">
+										        <h3 class="resume-position-title font-weight-bold mb-1">Développeur PHP<small class="text-muted"> (stagiaire)</small></h3>
+										        <div class="resume-company-name ml-auto">Freshmile</div>
+										    </div><!--//row-->
+										    <div class="resume-position-time">Février 2018 - Juin 2018</div>
+									    </div><!--//resume-timeline-item-header-->
+									    <div class="resume-timeline-item-desc">
+										    <p>Opérateur de bornes pour voiture éléctrique, la plateforme permets aux usagers de trouver, recharger et payer la recharge pour leurs véhicules électrique.</p>
+										    <p>En tant que développeur junior, ma mission était d'appréhender l'ensemble des technologies utilisées et consolider les connaissances acquises durant ma formation.</p>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+										    <ul class="list-inline">
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Symfony 3</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">MySQL</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">HTML/CSS</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Jquery/Ajax</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">JavaScript</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">GIT / SCRUM</span></li>
+										    </ul>
+									    </div>
+								    </article>
+								    <article class="resume-timeline-item position-relative">  
+									    <div class="resume-timeline-item-header mb-2">
+										    <div class="d-flex flex-column flex-md-row">
+										        <h3 class="resume-position-title font-weight-bold mb-1">Educateur sportif</h3>
+										        <div class="resume-company-name ml-auto">ESTKD</div>
+										    </div>
+										    <div class="resume-position-time">Septembre 2016 - Juillet 2017</div>
+									    </div>
+									    <div class="resume-timeline-item-desc">
+										    <p>
+												En tant que pratiquant et intervenant diplômé, j'avais pour mission de préparer et réaliser les cours selon les objectifs (loisir, compétitions, âge). Egalement des intervention en milieu scolaire (péri-scolaire).
+											</p>
+											<h4 class="resume-timeline-item-desc-heading font-weight-bold">Succès :</h4>
+										    <ul>
+											    <li>multiple médaillé au niveau régional et 2ème au championnat de france 2004</li>
+											    <li>Accompagnement d'enfants dans leurs pratiques sportives</li>
+											    <li>Obtention de la cceinture noir 1er DAN</li>
+										    </ul>
+										    <ul class="list-inline">
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Détermination</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Courage</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Passion</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Esprit d'équipe</span></li>
+										    </ul>
+									    </div>
+								    </article>
+								    <article class="resume-timeline-item position-relative">  
+									    <div class="resume-timeline-item-header mb-2">
+										    <div class="d-flex flex-column flex-md-row">
+										        <h3 class="resume-position-title font-weight-bold mb-1">Commercial en assurance / Gestionnaire en Assurance</h3>
+										    </div>
+										    <div class="resume-position-time">Avant 2016</div>
+									    </div>
+									    <div class="resume-timeline-item-desc">
+										    <p>
+												J'ai pu évoluer dans différentes compagnie (AXA, GENERALI, CAISSE D'EPARGNE) en occupant des postes assez variés (commercial sédentaire et itinérant, gestionnaire) et faire évoluer mes compétences commerciales et mon empthie.
+											</p>
+											<h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisation :</h4>
+										    <ul>
+											    <li>Développement et gestion d'un portefeuille clients</li>
+												<li>Rédaction et gestion de contrats d'assurance MRH</li>
+										    </ul>
+										    <ul class="list-inline">
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Commerce</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Gestion</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Négociation</span></li>
+										    </ul>
+									    </div>
+								    </article>
+							    </div>
+						    </div>
+					    </section>
+				    </div>
+				    <div class="col-lg-3">
+					    <section class="resume-section skills-section mb-5">
+						    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Compétences</h2>
+						    <div class="resume-section-content">
+						        <div class="resume-skill-item">
+							        <h4 class="resume-skills-cat font-weight-bold">Frontend</h4>
+							        <ul class="list-unstyled mb-4">
+								        <li class="mb-2">
+								            <div class="resume-skill-name">HTML/CSS</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+								        <li class="mb-2">
+								            <div class="resume-skill-name">JavaScript</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+								        <li class="mb-2">
+								            <div class="resume-skill-name">React</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 15%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+								        
+								        <li class="mb-2">
+								            <div class="resume-skill-name">Node.js</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 15%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+							        </ul>
+						        </div>
+						        
+						        <div class="resume-skill-item">
+						            <h4 class="resume-skills-cat font-weight-bold">Backend</h4>
+							        <ul class="list-unstyled">
+								        <li class="mb-2">
+								            <div class="resume-skill-name">PHP</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+								        <li class="mb-2">
+								            <div class="resume-skill-name">Symfony 5</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+								        <li class="mb-2">
+								            <div class="resume-skill-name">cakePHP 2</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+								        <li class="mb-2">
+								            <div class="resume-skill-name">WordPress</div>
+									        <div class="progress resume-progress">
+											    <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+								        </li>
+							        </ul>
+						        </div><!--//resume-skill-item-->
+						        
+						        <div class="resume-skill-item">
+						            <h4 class="resume-skills-cat font-weight-bold">Others</h4>
+						            <ul class="list-inline">
+							            <li class="list-inline-item"><span class="badge badge-light">Git</span></li>
+							            <li class="list-inline-item"><span class="badge badge-light">Tests Unitaires</span></li>
+							            <li class="list-inline-item"><span class="badge badge-light">Figma</span></li>
+							            <li class="list-inline-item"><span class="badge badge-light">SCRUM</span></li>
+							            <li class="list-inline-item"><span class="badge badge-light">WordPress</span></li>
+						            </ul>
+						        </div><!--//resume-skill-item-->
+						    </div><!--resume-section-content-->
+					    </section><!--//skills-section-->
+					    <section class="resume-section education-section mb-5">
+						    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Diplômes</h2>
+						    <div class="resume-section-content">
+							    <ul class="list-unstyled">
+								    <li class="mb-2">
+								        <div class="resume-degree font-weight-bold">Développeur Logiciel</div>
+								        <div class="resume-degree-org">Wild Code School</div>
+								        <div class="resume-degree-time">Septembre 2017 - Février 2018</div>
+								    </li>
+								    <li>
+								        <div class="resume-degree font-weight-bold">BTS Banque/Assurance</div>
+								        <div class="resume-degree-org">Pôle CCI Colmar</div>
+								        <div class="resume-degree-time">2008</div>
+								    </li>
+								    <li>
+								        <div class="resume-degree font-weight-bold">Baccalauréat Science Technologie Tertiaire</div>
+								        <div class="resume-degree-org">Lycée René Cassin</div>
+								        <div class="resume-degree-time">2004</div>
+								    </li>
+							    </ul>
+						    </div>
+					    </section>
+					    <section class="resume-section language-section mb-5">
+						    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Langues</h2>
+						    <div class="resume-section-content">
+							    <ul class="list-unstyled resume-lang-list">
+								    <li class="mb-2"><span class="resume-lang-name font-weight-bold">Anglais</span> <small class="text-muted font-weight-normal">(niveau moyen)</small></li>
+								    <li class="mb-2"><span class="resume-lang-name font-weight-bold">Arabe</span> <small class="text-muted font-weight-normal">(courant)</small></li>
+							    </ul>
+						    </div>
+					    </section><!--//language-section-->
+					    <section class="resume-section interests-section mb-5">
+						    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Loisirs</h2>
+						    <div class="resume-section-content">
+							    <ul class="list-unstyled">
+								    <li class="mb-1">Spectacles</li>
+								    <li class="mb-1">Taekwondo</li>
+								    <li class="mb-1">Boxe anglaise</li>
+							    </ul>
+						    </div>
+					    </section>
+					    
+				    </div>
+			    </div>
+		    </div>
+		    
+		    
+	    </div>
+    </article>  
+    
+    <footer class="footer text-light text-center py-2">
+	    <small class="copyright">Template Copyright &copy; <a class="text-light" href="https://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
+    </footer>
+{% endblock %}
+

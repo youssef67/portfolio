@@ -16,18 +16,60 @@
             </button>
             <div class="collapse navbar-collapse text-uppercase" id="navigation">
                 <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item active mr-lg-3">
-                        <a class="nav-link" href="index.html">A propos <span class="sr-only">(current)</span></a>
-                    </li>
+                    {% if route == 'home' %}
+                        <li class="nav-item active mr-lg-3">
+                            <a class="nav-link">Accueil<span class="sr-only"></span></a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="{{ path('home') }}">Accueil<span class="sr-only"></span></a>
+                        </li>
+                    {% endif %}
+                    {% if route == 'home' %}
                     <li class="nav-item mr-lg-3">
-                        <a class="nav-link" href="projects.html">Mes projets</a>
+                        <a class="nav-link" href="#competences">Compétences</a>
                     </li>
+                    {% else %}
                     <li class="nav-item mr-lg-3">
-                        <a class="nav-link" href="resume.html">Mon C.V</a>
+                        <a class="nav-link" href="{{ path('home') }}#competences">Compétences <span class="sr-only"></span></a>
                     </li>
-                    <li class="nav-item mr-lg-3">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+                    {% endif %}
+                    {% if route != 'home' %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="{{ path('home') }}#parcours">Mon parcours</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="#parcours">Mon parcours</a>
+                        </li>
+                    {% endif %}
+                    {% if route == 'projects' %}
+                        <li class="nav-item active mr-lg-3">
+                            <a class="nav-link" href="#projets">Réalisations</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="#projets">Réalisations</a>
+                        </li>
+                    {% endif %}
+                    {% if route == 'resume' %}
+                        <li class="nav-item active mr-lg-3">
+                            <a class="nav-link">C.V</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="{{ path('resume') }}">C.V</a>
+                        </li>
+                    {% endif %}
+                    {% if route != 'home' %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="{{ path('home') }}#contact">Contact</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 <span id="slide-line"></span>
             </div>
