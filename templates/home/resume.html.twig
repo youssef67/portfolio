@@ -8,7 +8,7 @@
         <div class="header-intro header-intro-resume theme-bg-primary text-white py-5">
 	        <div class="container position-relative">
 		        <h2 class="page-heading mb-3">Mon C.V</h2>
-		        <a class="btn theme-btn-on-bg download-resume position-absolute font-weight-bold mx-auto" href="{{ path('download_resume')}}"><i class="fas fa-download mr-2"></i>Télécharger mon C.V en PDF</a>
+		        <a class="btn theme-btn-on-bg download-resume position-absolute font-weight-bold mx-auto" href="{{ path('downloadFile', {'file' : 'cv-youssef-moudni.pdf'})}}"><i class="fas fa-download mr-2"></i>Télécharger mon C.V en PDF</a>
 	        </div>
         </div>
     </header>
@@ -42,8 +42,9 @@
 			    <section class="resume-section summary-section mb-5">
 				    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Qui je suis ?</h2>
 				    <div class="resume-section-content">
-					    <p class="mb-0">Summarise your career here. <a class="text-reset">
-							Après plusieurs années dans le milieu de l'assurance, au poste de commercial (front-end) et gestionnaire de contrat (back-end), j'ai acquis une connaissance certaine du milieu professionnel.  Ces expériences m'ont poussé à franchir le pas de l'entreprenariat, en ouvrant une entreprise dans le  milieu de l'import/export. Cette expérience fut riche en enseignements tant sur le plan humain que professionnel .				    </div>
+						Avec une solide expérience dans le milieu de l'assurance, au poste de commercial (front-end) et gestionnaire de contrat (back-end), j'ai pu entreprendre une reconversion professionnelle dans le monde de la programmation. Après avoir occupé un poste de développeur PHP au sein de <a class="link-on-bg"
+                        href="https://www.movidone.com/" target="_blank" style="color: #f06a4e;">Movidone</a> et la réalisation d'une application web, je souhaite confirmer mon choix de carrière en occupant un poste de développeur PHP.
+					</div>
 			    </section>
 			    <div class="row">
 				    <div class="col-lg-9">
@@ -60,13 +61,13 @@
 										    <div class="resume-position-time">Septembre 2019 - Février 2020</div>
 									    </div><!--//resume-timeline-item-header-->
 									    <div class="resume-timeline-item-desc">
-										    <p>L'idée était de lancer un outil à destination des créateurs de contenus qui diffusent en direct sur des plateformes de streaming. L'outil devait permettre à leurs communautés de choisir et voter pour les musiques à diffuser pendant un stream.</p>
+										    <p>Outil à destination des créateurs de contenus qui diffusent en direct sur des plateformes de streaming. L'outil devait permettre à leurs communautés de choisir et voter pour les musiques à diffuser pendant un stream.</p>
 										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisations :</h4>
 										    <p>En phase de lancement, notre mission première était de vérifier la faisabilité du projet</p>
 										    <ul>
 											    <li>Création du buisness model et du buisness plan</li>
 											    <li>Lancement de la landing page avec récupération des contacts</li>
-											    <li>Mise en relation avec les acteurs de l'écosystème startup (SEMIA, Tango&ampScan)</li>
+											    <li>Prise de contact avec les acteurs de l'écosystème startup (SEMIA, Tango&ampScan)</li>
 											    <li>Développement du POC</li>
 										    </ul>
 										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies/méthodes utilisées :</h4>
@@ -85,14 +86,18 @@
 										    <div class="d-flex flex-column flex-md-row">
 										        <h3 class="resume-position-title font-weight-bold mb-1">Développeur back-end</h3>
 										        <div class="resume-company-name ml-auto">Movidone</div>
-										    </div><!--//row-->
+										    </div>
 										    <div class="resume-position-time">Août 2018 - Août 2019</div>
-									    </div><!--//resume-timeline-item-header-->
+									    </div>
 									    <div class="resume-timeline-item-desc">
-										    <p>Mon rôle au sein d'une équipe de 6 développeurs, était de répondre au cahier des charges transmis par le Lead-développeur en développant les fonctionnalités demandées.</p>
-										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisations :</h4>
-										    <p>Création d'une plateforme E-santé (TimeLink) sous cakePHP 2 dans l'optique d'une incubation chez SEMIA</p>
-										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+										    <p>Au sein d'une équipe de 6 développeurs, j'avais pour mission de répondre au cahier des charges transmis par le Lead-développeur en développant les fonctionnalités demandées.</p>
+											<h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisations :</h4>
+										    <ul>
+											    <li>Création d'une plateforme E-santé (TimeLink) sous cakePHP 2 dans l'optique d'une incubation chez SEMIA</li>
+											    <li>Réalisations de tickets sur le projet principal, EasyTransac</li>
+											    <li>Maintenance d'un parc informatique</li>
+										    </ul>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies utilisées:</h4>
 										    <ul class="list-inline">
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">CakePHP 2</span></li>
@@ -113,9 +118,13 @@
 										    <div class="resume-position-time">Février 2018 - Juin 2018</div>
 									    </div><!--//resume-timeline-item-header-->
 									    <div class="resume-timeline-item-desc">
-										    <p>Opérateur de bornes pour voiture éléctrique, la plateforme permets aux usagers de trouver, recharger et payer la recharge pour leurs véhicules électrique.</p>
-										    <p>En tant que développeur junior, ma mission était d'appréhender l'ensemble des technologies utilisées et consolider les connaissances acquises durant ma formation.</p>
-										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+											<p>Opérateur de bornes pour voiture éléctrique, la plateforme permets aux usagers de trouver, recharger et payer la recharge pour leurs véhicules électrique.</p>
+											<h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisations :</h4>
+										    <ul>
+											    <li>Appréhender les technologies utilisées et consolidation des connaissances acquises</li>
+											    <li>Lancement d'une API permettant de communique selon un protocole défini (non finalisée)</li>
+										    </ul>
+										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies utilisées :</h4>
 										    <ul class="list-inline">
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Symfony 3</span></li>
@@ -123,6 +132,7 @@
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">HTML/CSS</span></li>
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Jquery/Ajax</span></li>
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">JavaScript</span></li>
+											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">API</span></li>
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">GIT / SCRUM</span></li>
 										    </ul>
 									    </div>
@@ -137,13 +147,13 @@
 									    </div>
 									    <div class="resume-timeline-item-desc">
 										    <p>
-												En tant que pratiquant et intervenant diplômé, j'avais pour mission de préparer et réaliser les cours selon les objectifs (loisir, compétitions, âge). Egalement des intervention en milieu scolaire (péri-scolaire).
+												En tant que pratiquant et intervenant diplômé, j'avais pour mission de préparer et réaliser les cours selon les objectifs (loisir, compétitions, âge, péri-scolaire).
 											</p>
 											<h4 class="resume-timeline-item-desc-heading font-weight-bold">Succès :</h4>
 										    <ul>
-											    <li>multiple médaillé au niveau régional et 2ème au championnat de france 2004</li>
-											    <li>Accompagnement d'enfants dans leurs pratiques sportives</li>
-											    <li>Obtention de la cceinture noir 1er DAN</li>
+											    <li>Multiples médaillés au niveau régional et 2ème au championnat de france 2004</li>
+											    <li>Accompagnement d'enfants dans les compétitions nationales</li>
+											    <li>Obtention de la ceinture noir 1er DAN</li>
 										    </ul>
 										    <ul class="list-inline">
 											    <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Détermination</span></li>
@@ -162,7 +172,7 @@
 									    </div>
 									    <div class="resume-timeline-item-desc">
 										    <p>
-												J'ai pu évoluer dans différentes compagnie (AXA, GENERALI, CAISSE D'EPARGNE) en occupant des postes assez variés (commercial sédentaire et itinérant, gestionnaire) et faire évoluer mes compétences commerciales et mon empthie.
+												J'ai pu évoluer dans différentes compagnies (AXA, GENERALI, CAISSE D'EPARGNE) en occupant des postes variés (commercial sédentaire et itinérant, gestionnaire) et faire évoluer mes compétences commerciales et relationnelles.
 											</p>
 											<h4 class="resume-timeline-item-desc-heading font-weight-bold">Réalisation :</h4>
 										    <ul>
@@ -255,7 +265,7 @@
 							            <li class="list-inline-item"><span class="badge badge-light">WordPress</span></li>
 						            </ul>
 						        </div><!--//resume-skill-item-->
-						    </div><!--resume-section-content-->
+						    </div>
 					    </section><!--//skills-section-->
 					    <section class="resume-section education-section mb-5">
 						    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Diplômes</h2>
@@ -301,14 +311,8 @@
 					    
 				    </div>
 			    </div>
-		    </div>
-		    
-		    
+		    </div>  
 	    </div>
     </article>  
-    
-    <footer class="footer text-light text-center py-2">
-	    <small class="copyright">Template Copyright &copy; <a class="text-light" href="https://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
-    </footer>
 {% endblock %}
 

@@ -334,5 +334,28 @@ body {
 		margin: 1em 4em 0 4em;
 	}
 
-	}
+  }
+  
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.scrollable-menu a
+{
+  color: #000;
+}
+
+.scrollable-menu li 
+{
+  background-color: #fff;
+  padding-left: 5px;
+}
+
+.dropdown-menu 
+{
+  width: 100% !important;
+  background-color: #fff;
+}
 

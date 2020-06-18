@@ -34,6 +34,7 @@
   
     <body>
         {% block body %}{% endblock %}
+        {% include "footer.html.twig" %}
         {% block javascripts %}{% endblock %}
          <!-- Javascript -->          
         <script type="text/javascript" src="{{ asset("plugins/jquery-3.4.1.min.js") }}"></script>

@@ -1,0 +1,137 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}challenge - Youssef Moudni{% endblock %}
+{% block body %}
+
+	{% include "navbar.html.twig" %}
+    <section class="project-wrapper single-col-max-width py-5 px-4 mx-auto">
+	        <div class="section-row">
+		        <div class="mb-5"><img class="img-fluid" src="{{ asset("images/projects/challenge-figure-main.jpg")  }}"></div>
+		        <h3 class="section-title">Le projet</h3>
+		        <p>Projet permettant de mettre en pratique mes connaissances. L'idée est de permettre à un développeur en recherche d'opportunité de mettre son profil et ses aspirations sous forme de défis.
+					Les recruteurs pourront décider de relever le défi sous un laps de temps permettant de gagner plus ou mois de points, l'idée est de pouvoir enfin savoir qui est le meilleure dans le domaine du recrutement.
+				</p>
+	        </div>
+	        
+	        
+	        <div class="section-row">
+		        <h3 class="section-title">Objectifs</h3>
+		        <p>Développer le site en Symfony 5 avec du JS pour l'expérience utilisateur et une BDD gérée via l'ORM DOCTRINE</p>
+		        
+		        <ul class="mb-5 ml-md-5">
+				  <li class="mb-3">Tester mes connaissance du framework Symfony 5</li>
+				  <li class="mb-3">Mettre un miminum de Javascript dans ce projet</li>
+				  <li class="mb-3">Le mettre en production</li>
+				</ul>			
+	        </div><!--//section-row-->
+	        <div class="section-row">
+				<h3 class="section-title">Bénéfices</h3>
+	            <ul class="list-unstyled pl-4 mb-5 ml-md-5">
+				  <li class="mb-4"><i class="fas fa-check text-primary mr-3"></i>Conforter et augmenter mes connaissances du framework Symfony 5</li>
+				  <li class="mb-4"><i class="fas fa-check text-primary mr-3"></i>Apprendre à mettre en pratique du Javescript</li>
+				  <li class="mb-4"><i class="fas fa-check text-primary mr-3"></i>Démontrer ma capacité à réaliser un site fonctionnel</li>
+				</ul>
+	        </div>
+            <div class="section-row">
+	            <h3 class="section-title">Technologies utilisées</h3> 
+	            <div class="webdev-icons row mb-5 align-items-center">		            
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/php.svg") }}"></div>
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/symfony.svg") }}"></div>
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/javascript.svg") }}"></div>
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/jquery-alt.svg") }}"></div>			       
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/html5.svg") }}"></div>		
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/css3.svg") }}"></div>		        
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/mysql-alt.svg") }}"></div>
+			        <div class="webdev-icon col-4 col-md-2 mr-0 mb-4 px-4"><img class="img-fluid svg-ie-fix" src="{{ asset("images/webdev-icons/bootstrap4.svg") }}"></div>	        
+		        </div>
+            </div>
+    </section>
+    
+    <section class="section pt-5 related-projects-section bg-white">
+		<div class="container">
+			<h3 class="section-title font-weight-bold text-center mb-4">Autres réalisations</h3>
+			<div class="project-cards row">
+				
+				 <div class="col-12 col-lg-3">
+					<div class="card rounded-0 border-0 shadow-sm mb-5 mb-lg-0">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{ asset("images/projects/ocr-thumb.jpg") }}" alt="">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'ocr'}) }}">
+							    <p class="card-text">Cours/Tutoriels</p>
+							</a>
+						</div>		
+						<div class="card-footer border-0 text-center bg-white pb-4" style="border-top: 5px solid #f06a4e !important">
+							<ul class="list-inline mb-0 mx-auto">
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill" >MVC</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">POO</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mysql</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+							</ul>
+					    </div>
+				    </div><!--//card-->
+		        </div>
+		        <div class="col-12 col-lg-3">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{ asset("images/projects/udemy-thumb.jpg") }}" alt="">	
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'udemy'}) }}">
+							    <p class="card-text">Cours/Tutoriels</p>
+							</a>
+						</div>
+						<div class="card-footer border-0 text-center bg-white pb-4" style="border-top: 5px solid #f06a4e !important">
+							<ul class="list-inline mb-0 mx-auto">
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">POO</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">JavaScript</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">SYMFONY 5</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Github</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+							</ul>
+					    </div>
+				    </div><!--//card-->
+		        </div>
+		        <div class="col-12 col-lg-3">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{ asset("images/projects/codewar-thumb.jpg") }}" alt="">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'codewar'}) }}">
+							    <p class="card-text">Algorithmie</p>
+							</a>
+						</div>
+						<div class="card-footer border-0 text-center bg-white pb-4" style="border-top: 5px solid #f06a4e !important">
+							<ul class="list-inline mb-0 mx-auto">
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mathématique</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Logique</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Algorithmie</span></li>
+							</ul>
+					    </div>
+				    </div><!--//card-->
+		        </div>
+		        <div class="col-12 col-lg-3">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{ asset("images/projects/vibin-thumb.jpg") }}" alt="">	
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'vibin'}) }}">
+							    <p class="card-text">Landing page</p>
+							</a>
+						</div>
+						<div class="card-footer border-0 text-center bg-white pb-4" style="border-top: 5px solid #f06a4e !important">
+							<ul class="list-inline mb-0 mx-auto">
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">HTML/CSS</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Javascript</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mysql</span></li>
+							</ul>
+					    </div>
+				    </div>
+		        </div>
+	        </div>
+		</div>
+	</section>
+{% endblock %}
+
+
+

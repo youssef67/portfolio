@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisations - Youssef Moudni{% endblock %}
+
+{% block body %}    
+    <header class="header">
+		{% include "navbar.html.twig" %}
+        <div class="header-intro theme-bg-primary text-white py-5">
+	        <div class="container">
+		        <h2 class="page-heading mb-3">Réalisations - programmations</h2>
+	        </div>
+        </div>
+    </header>
+        
+    <section class="section pt-5">
+        <div class="container">        
+	        <div class="project-cards row mb-5 isotope">
+		        <div class="isotope-item col-12 col-lg-4">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{asset("images/projects/vibin-thumb.jpg") }}">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'vibin'}) }}">
+								<h5 class="card-title font-weight-bold">Vibin</h5>
+							    <p class="card-text">Outil à destination des streamers permettant aux communautés de
+									soumettre et voter pour les musiques à diffuser pendant un stream</p>
+							</a>
+						</div>
+						<div class="card-body pb-0" style="border-top: 5px solid #f06a4e">
+							<h4 class="card-title text-truncate text-center mb-0"><a href="{{ path("project", {'project' : 'vibin'}) }}">Landing page</a></h4>
+						</div>
+						
+						<div class="card-footer border-0 text-center bg-white pb-4">
+							<ul class="list-inline mb-0 mx-auto">
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">HTML/CSS</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Javascript</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mysql</span></li>
+							</ul>
+					    </div>
+				    </div>
+		        </div>
+		        
+		        <div class="isotope-item col-12 col-lg-4">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{ asset("images/projects/udemy-thumb.jpg") }}">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'udemy'}) }}">
+								<h5 class="card-title font-weight-bold">Tutoriels</h5>
+							    <p class="card-text">Listes des tutoriels et états d'avancements</p>
+							</a>
+						</div>
+						<div class="card-body pb-0" style="border-top: 5px solid #f06a4e">
+							<h4 class="card-title text-truncate text-center mb-0"><a href="{{ path("project", {'project' : 'udemy'}) }}">Cours/Tutoriels</a></h4>
+						</div>
+						
+						<div class="card-footer border-0 text-center bg-white pb-4">
+							<ul class="list-inline mb-0 mx-auto">
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">POO</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">JavaScript</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">SYMFONY 5</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Github</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+							</ul>
+					    </div>
+				    </div><!--//card-->
+		        </div><!--//isotope-item-->
+		        
+		        <div class="isotope-item col-12 col-lg-4 react python-django">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{asset("images/projects/ocr-thumb.jpg") }}">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'ocr'}) }}">
+								<h5 class="card-title font-weight-bold">openclassroom</h5>
+							    <p class="card-text">Listes des tutoriels et états d'avancements</p>
+							</a>
+						</div>
+						<div class="card-body pb-0" style="border-top: 5px solid #f06a4e">
+							<h4 class="card-title text-truncate text-center mb-0"><a href="{{ path("project", {'project' : 'ocr'}) }}">Cours/Tutoriels</a></h4>
+						</div>
+						
+						<div class="card-footer border-0 text-center bg-white pb-4">
+							<ul class="list-inline mb-0 mx-auto">
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill" >MVC</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">POO</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mysql</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+							</ul>
+					    </div>
+				    </div><!--//card-->
+		        </div><!--//isotope-item-->
+		        
+		        <div class="isotope-item col-12 col-lg-4 react">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{asset("images/projects/codewar-thumb.jpg") }}" alt="">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'codewar'}) }}">
+								<h5 class="card-title font-weight-bold">Codewar</h5>
+							    <p class="card-text">Listes des katas réalisés</p>
+							</a>
+						</div>
+						<div class="card-body pb-0" style="border-top: 5px solid #f06a4e">
+							<h4 class="card-title text-truncate text-center mb-0"><a href="{{ path("project", {'project' : 'codewar'}) }}">Programmation/algorithmie</a></h4>
+						</div>
+						
+						<div class="card-footer border-0 text-center bg-white pb-4">
+							<ul class="list-inline mb-0 mx-auto">
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mathématique</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Logique</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Algorithmie</span></li>
+							</ul>
+					    </div>
+				    </div><!--//card-->
+		        </div><!--//isotope-item-->
+		        
+		        <div class="isotope-item col-12 col-lg-4 react php">
+					<div class="card rounded-0 border-0 shadow-sm mb-5">
+						<div class="card-img-container position-relative">
+							<img class="card-img-top rounded-0" src="{{ asset("images/projects/challenge-thumb.jpg") }}">
+							<a class="card-img-overlay overlay-content text-left p-lg-4" href="{{ path("project", {'project' : 'challenge'}) }}">
+								<h5 class="card-title font-weight-bold">challenge</h5>
+							    <p class="card-text">Projet sous symfony 5, permettant de noter et challenger le recrutement dans le milieu de l'IT</p>
+							</a>
+						</div>
+						<div class="card-body pb-0" style="border-top: 5px solid #f06a4e">
+							<h4 class="card-title text-truncate text-center mb-0"><a href="{{ path("project", {'project' : 'darme'}) }}">Application web</a></h4>
+						</div>
+						
+						<div class="card-footer border-0 text-center bg-white pb-4">
+							<ul class="list-inline mb-0 mx-auto">
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">PHP</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">POO</span></li>
+						        <li class="list-inline-item"><span class="badge badge-secondary badge-pill">Symfony 5</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Mysql</span></li>
+								<li class="list-inline-item"><span class="badge badge-secondary badge-pill">Bootstrap</span></li>
+							</ul>
+					    </div>
+				    </div>
+		        </div>
+	        </div>
+        </div>
+    </section>
+{% endblock %}
+
