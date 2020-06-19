@@ -15,17 +15,19 @@
     
     <!-- FontAwesome JS -->
     <script defer src="{{ asset("fontawesome/js/all.js") }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 
     
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="{{asset("plugins/flickity/flickity.min.css") }}">
-    
+    <link rel="stylesheet" href="{{ asset("plugins/flickity/flickity.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("plugins/highlight/styles/atom-one-dark.css") }}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css">
+
     
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="{{ asset("css/theme-12.css") }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/scss/style.scss") }}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css'>
@@ -41,7 +43,8 @@
         <script type="text/javascript" src="{{ asset("plugins/popper.min.js") }}"></script> 
         <script type="text/javascript" src="{{ asset("plugins/bootstrap/js/bootstrap.min.js") }}"></script>  
         <script type="text/javascript" src="{{ asset("plugins/back-to-top.js") }}"></script>
-        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>    
+
         <!-- Page Specific JS -->
         <script type="text/javascript" src="{{ asset("plugins/flickity/flickity.pkgd.min.js") }}"></script> 
 
@@ -49,6 +52,8 @@
         <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/flickity-custom.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/main-perso.js") }}"></script>
+        <script type="text/javascript" src="{{asset("plugin/highlight/highlight.pack.js") }}"></script>
+
         
         <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
         <script type="text/javascript" src="{{ asset("js/demo/style-switcher.js") }}"></script>

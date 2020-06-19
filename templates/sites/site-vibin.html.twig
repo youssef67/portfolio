@@ -1,0 +1,108 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vibin | Streamers, rapprochez-vous de votre communauté en musique</title>
+    <meta name="title" content="Vibin">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+        integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset("css/vibin-style.css") }}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900|Montserrat&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
+        integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <img alt="logo vibin" src="{{ asset("images/vibin/logo_desktop.png") }}" width="102" height="40" alt="">
+    </nav>
+
+    <div id="mybutton">
+        <a href="{{ path("project", {'project' : 'vibin'}) }}"><button class="feedback">Retour au portfolio</button></a>
+    </div>
+    <div class="banner">
+        <div class="row" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center tagline">
+                <img class="noselect" alt="logo vibin" src='{{asset("images/vibin/logo_desktop.png") }}' />
+                <p>Le premier jukebox virtuel dédié aux streamers</p>
+            </div>
+        </div>
+        <div class="row bulletPoints" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center bulletPoint">
+                <img class="home-images home-images-center noselect" alt="prenez le contrôle de votre stream"
+                    src='{{ asset("images/vibin/musique-fun.png") }}' />
+                <p>Un espace interactif totalement pensé et dédié à ta communauté</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center bulletPoint">
+                <img class="home-images home-images-center noselect" alt="prenez le contrôle de votre stream"
+                    src='{{ asset("images/vibin/engagement-viewer.png") }}' />
+                <p>Engage et fidélise ta communauté à travers la musique, pendant et hors de ton stream</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center bulletPoint">
+                <img class="home-images home-images-center noselect" alt="prenez le contrôle de votre stream"
+                    src='{{ asset("images/vibin/don-argent.png") }}' />
+                <p>Transforme ce lien musical en soutien financier pour ta chaine</p>
+            </div>
+        </div>
+        <div class="row cta" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-md-12 text-center">
+                <button class="btn-call-to-action btn">Rejoindre l'aventure !</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="howitworks" class="how-it-works">
+        <div class="row" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                <h1>Comment ça marche ?</h1>
+            </div>
+        </div>
+        <div class="row justify-content-around" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center not-responsive how-it-work-step">
+                <img class="img-how-it-works" alt="espace" src='{{ asset("images/vibin/create-join-room.png") }}' />
+                <p class="text-center">Créer un espace dédié et partage l'identifiant unique à ta communauté</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center responsive how-it-work-step">
+                <img class="img-how-it-works" alt="espace"
+                    src='{{ asset("images/vibin/create-join-room-responsive.png") }}' />
+                <p class="text-center">Je créé mon espace dédié et je partage mon identifiant unique à ma communauté</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center how-it-work-step">
+                <img class="img-how-it-works" alt="espace" src='{{ asset("images/vibin/screen-search.png") }}' />
+                <p class="text-center">Mes viewers peuvent rechercher des musiques et les ajouter à la playlist</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center how-it-work-step">
+                <img class="img-how-it-works" alt="espace" src='{{ asset("images/vibin/vote_lobby.png") }}' />
+                <p class="text-center">Un système de vote gratuit ou payant pour classer les musiques</p>
+            </div>
+        </div>
+        <div class="row cta" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-md-12 text-center">
+                <button class="btn-call-to-action btn second-cta">Je veux en savoir encore plus
+                    !</button>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 60px;" class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>VIBIN / 2020</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset("js/main-perso.js") }}"></script>
+
+</body>

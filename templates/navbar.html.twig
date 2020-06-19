@@ -43,13 +43,13 @@
                             <a class="nav-link" href="#parcours">Parcours</a>
                         </li>
                     {% endif %}
-                    {% if route == 'projects' %}
+                    {% if route != 'home' %}
                         <li class="nav-item active mr-lg-3">
-                            <a class="nav-link" href="#projects">Réalisations</a>
+                            <a class="nav-link" href="{{ path('allProjects') }}">Réalisations</a>
                         </li>
                     {% else %}
                         <li class="nav-item mr-lg-3">
-                            <a class="nav-link" href="{{ path('home') }}#projects ">Réalisations</a>
+                            <a class="nav-link" href="#projects">Réalisations</a>
                         </li>
                     {% endif %}
                     {% if route == 'resume' %}

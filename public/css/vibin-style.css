@@ -1,0 +1,345 @@
+/* --------------------------------  CSS VIBIN -------------------------------------*/
+
+.feedback {
+    background-color : #f06a4e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border-color: #f06a4e;
+  }
+  
+  #mybutton {
+    position: fixed;
+    top: 15px;
+    right: 10px;
+    z-index: 99;
+  }
+
+:root {
+    --background-primary: #353535;
+    --background-darker: #282828;
+    --text: #eeeeee;
+    --text-call-to-action: #353535;
+    --p-text: #dadada;
+    --v-orange : #E7895C;
+    --v-yellow : #EBC65E;
+  }
+  
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+  
+  body {
+    background-color: var(--background-primary);
+    color: var(--text);
+    font-family: 'Lato', sans-serif !important;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Override default modal */
+  
+  .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
+    background:  #e7895C !important;
+    color : white;
+  }
+  
+  .swal2-progress-steps .swal2-progress-step-line {
+    background: white !important;
+  }
+  
+  .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step {
+    background: white !important;
+  }
+  
+  .swal2-progress-steps .swal2-progress-step {
+    background: white !important;
+  
+  }
+  
+  .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
+    color: black !important;
+  }
+  
+  .swal2-progress-steps .swal2-progress-step {
+    color: black !important;
+  }
+  
+  .swal2-title {
+    color: white !important;
+  }
+  
+  .swal2-file, .swal2-input, .swal2-textarea {
+    color: white !important;
+  }
+  
+  /* Tagline */
+  
+  .tagline {
+    margin-top: 30px;
+    margin-bottom: 80px;
+  }
+  
+  .tagline img {
+    width: 300px;
+    height: 140px;
+  }
+  
+  .home-images {
+    height: 180px;
+    width: 250px;
+  }
+  
+  .tagline p {
+    font-size: 1.7em;
+    font-weight: bold;
+  }
+  
+  /* bulletPoints */
+  
+  .bulletPoints p {
+    margin-top: 20px;
+    font-size: 1.4em;
+  }
+  
+  p {
+    color: var(--p-text); 
+  }
+  
+  /* CTA */
+  
+  .cta {
+    margin-top: 60px;
+  }
+  
+  /* how it works */
+  
+  .how-it-works h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .how-it-works h2 {
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
+  .img-how-it-works {
+    max-height: 450px;
+    margin-bottom: 30px;
+    padding: 15px 15px 0;
+    -moz-border-radius:7px;
+    -webkit-border-radius:20px;
+    border-radius:20px;
+  }
+  
+  .how-it-works p {
+    font-size: 19px;
+  }
+  
+  .connexion-msg {
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .step {
+    margin-bottom: 40px;
+  }
+  
+  .how-it-works span {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  
+  ::selection {
+    background-color: var(--v-orange);
+  }
+  
+  .bg-dark {
+    background-color: var(--background-darker) !important;
+  }
+  
+  footer {
+    padding:60px;
+    font-size:13px;
+    background-color: var(--background-darker);
+  }
+  
+  .banner {
+    height:840px;
+    background-image: url('../img/streamer-with-headset.jpg');
+    background-size: cover;
+    background-position: center;
+    justify-content: space-evenly;
+    padding-top:60px;
+  }
+  
+  /* Override default button styling */
+  
+  .btn {
+    border-radius: 10px;
+    padding:8px 30px;
+    font-weight: bold;
+    font-size:20px;
+    line-height:18px;
+    transition:all 0.3s;
+    margin-bottom:20px;
+  }
+  
+  .btn:hover {
+    border-radius:30px;
+    transition:all 0.3s;
+  }
+  
+  .btn-call-to-action {
+    background: linear-gradient(90deg, #EBC65E 0%, #E7895C 100%);
+    color: var(--background-darker);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    border:none;
+    outline:none;
+    height: 70px;
+  }
+  
+  .btn-call-to-action:hover {
+    color: var(--background-darker);
+  }
+  
+  .social-icons {
+    text-align: center;
+  }  
+  
+  .social-icons li {
+    display:inline-block;
+    list-style-type:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+  }
+  
+  .social-icons li a {
+    border-bottom: none;
+  }
+  
+  .social-icons li img {
+    width:40px;
+    height:40px;
+    margin-right: 20px;
+  }
+  
+  .responsive {
+    display: none;
+  }
+  
+  /* CSS Medias query pour smartphone en portrait */
+  
+  @media screen and (max-width: 767px) {
+  
+    .banner {
+        height: 100%;  
+    }
+  
+    .banner h1 {
+        font-size: 1.7em;
+    }
+  
+    .banner p {
+        font-size: 1.3em;
+    }
+  
+    .home-images {
+        max-width: 150px;
+    }
+  
+    .bulletPoint {
+        margin-bottom: 30px;
+    }
+  
+    .img-how-it-works {
+        width: 250px;
+    }
+  
+    .how-it-work-step {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+  
+    .connexion-msg {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+  
+    .not-responsive {
+        display: none;
+    }
+  
+    .responsive {
+        display: block;
+    }
+  
+    .how-it-work-step {
+        margin-bottom: 40px;
+    }
+  
+    .tagline img {
+        width: 200px;
+        height: 100px;
+    }
+  
+    .home-images {
+        height: 130px;
+        width: 250px;
+    }
+  
+    .tagline p {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .banner {
+        height: 100%;  
+    }
+  
+    .banner h1 {
+        font-size: 1.8em;
+    }
+  
+    .banner p {
+        font-size: 1.4em;
+    }
+  
+    .home-images {
+        max-width: 150px;
+        height: 100px;
+    }
+  
+    .bulletPoint {
+        margin-bottom: 30px;
+    }
+  
+    .img-how-it-works {
+        width: 170px;
+        height: 264px;
+    }
+  
+    .how-it-work-step {
+        margin-bottom: 40px;
+    }
+  }
+  
+  @media screen and (min-width: 1025px) and (max-width: 1110px) {
+    .banner {
+        height: 100%;  
+    }
+  }

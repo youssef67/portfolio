@@ -13,22 +13,16 @@
 		        
 		        <div class="btn-group mb-5" style="width: 30% !important;">
 					<button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="fas fa-external-link-alt"></i>
-						Voir le exercices<span class="caret"></span></button>
+						Voir les katas<span class="caret"></span></button>
 					<ul class="dropdown-menu scrollable-menu" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "ipValidation"}) }}">IPvalidation</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "maximumDifference"}) }}">MaximumDifference</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "divisor"}) }}">Divisors</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "multiple3or5"}) }}">Multiple3or5</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "pileOfCube"}) }}">PileOfCube</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "shortestWord"}) }}">ShortestWord</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "tortoiseRacing"}) }}">TortoiseRacing</a></li>
+						<li><a href="{{ path("choose_kata", {"kata" : "uniqueOrder"}) }}">UniqueOrder</a></li>
 					</ul>
 				</div>
 
