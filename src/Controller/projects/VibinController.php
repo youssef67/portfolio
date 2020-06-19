@@ -22,7 +22,6 @@ class VibinController extends AbstractController
      */
     public function addEmail()
     {
-        dd('toto');
         return $this->render('sites/site-vibin.html.twig', [
             'route' => 'projet_vibin'
         ]);

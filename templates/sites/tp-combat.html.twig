@@ -1,0 +1,861 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TP combat{% endblock %}
+
+{% block body %}
+{% include "navbar.html.twig" %}
+
+<section class="single-post-wrapper single-col-max-width py-5 px-4 mx-auto">
+    <div class="section-row">
+        <div class="mb-5"><a class="btn btn-primary" href="{{ path("project", {'project' : 'ocr'}) }}" target="_blank"><i class="fas  fa-arrow-left mr-2"></i>Revenir au projet</a></div>
+
+    </div>
+
+    <div class="divider"><span></span><span>TP combat</span><span></span></div>
+    <div class="section-row">
+        <p>TP reprenant les principes de la programmation orientée objet avec notions tels que les classes abstraites, interface, le manager de données. Un tuotriel permettant de remettre à jour certaines connaissances.</p>
+
+        <h4 class="mb-3" style="font-weight: bold;">Index.php</h4>
+        <p>Page mettant en place la logique front avec l'ensemble des vérifications nécessaires et la mise en place d'un formulaire.</p>
+        <div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
+            <pre><code class="php">
+&lt?php
+
+function chargerClass($class)
+{
+    require $class . '.php';
+}
+
+spl_autoload_register('chargerClass');
+
+session_start();
+
+if (isset($_GET['deconnexion']))
+{
+    session_destroy();
+    header('Refresh: 1; URL=index.php');
+    exit();
+}
+
+if (isset($_SESSION['perso']))
+{
+    $perso = $_SESSION['perso'];
+}
+
+$db = new PDO('mysql:host=localhost;dbname=tp_combat', 'root', 'kurosaki');
+$db->setAttribute(PDO::ERRMODE_WARNING, PDO::ATTR_ERRMODE); 
+
+$manager = new PersonnageManager($db);
+ 
+if (isset($_POST['creer']) && isset($_POST['nom']) && isset($_POST['forcePerso']))
+{
+    switch ($_POST['typePersonnage'])
+    {
+        case 'magicien':
+            $perso = new Magicien([
+                'nom' => $_POST['nom'],
+                'degats' => 0,
+                'experience' => 0,
+                'niveau' => 0,
+                'forcePerso' => $_POST['forcePerso'],
+                'timeEndormi' => 0,
+                'typePersonnage' => $_POST['typePersonnage'],
+                'atout' => 0
+            ]);
+        break;
+        case 'guerrier':
+            $perso = new Guerrier([
+                'nom' => $_POST['nom'],
+                'degats' => 0,
+                'experience' => 0,
+                'niveau' => 0,
+                'forcePerso' => $_POST['forcePerso'],
+                'timeEndormi' => 0,
+                'typePersonnage' => $_POST['typePersonnage'],
+                'atout' => 0
+            ]);
+        break;
+        default:
+            $message = 'Le type de personnage est invalide';
+        break; 
+    }
+    
+    if (isset($perso))
+    {
+        if (!$perso->nomValide())
+        {
+            $message = 'le nom n\'est pas valide';
+            unset($perso);
+        }
+        elseif ($manager->exists($perso->nom()))
+        {
+            $message = 'personnage deja existant';
+            unset($perso);
+        }
+        else
+        {
+            $manager->add($perso);
+        }
+    }
+}
+elseif (isset($_POST['utiliser']) && isset($_POST['nom']))
+{
+    if (!$manager->exists($_POST['nom']))
+    {
+        $message = 'personnage existe pas';
+    }
+    else 
+    {
+        $perso = $manager->get($_POST['nom']);
+    }
+}
+elseif ($_GET['frapper'])
+{
+    if (!isset($perso))
+    {
+        $message = 'Veuillez créer un personnage ou vous identifier';
+    }
+
+    else
+    {
+        if (!$manager->exists((int) $_GET['frapper']))
+        {
+            $message = 'Le personnage frappé existe pas';
+        }
+
+        else
+        {
+            $persoAFrapper = $manager->get((int) $_GET['frapper']);
+
+            $retour = $perso->frapper($persoAFrapper);
+
+            switch($retour)
+            {
+                case Personnage::CEST_MOI:
+                    $message = 'Mais... pourquoi voulez-vous vous frapper ???';
+                break;
+                case Personnage::PERSONNAGE_FRAPPE:
+                    $message = 'Le personnage a bien été frappé';
+                    // $manager->update($perso);
+                    $manager->update($persoAFrapper);
+                break;
+                case Personnage::PERSONNAGE_TUE:
+                    $message = 'Vous avez tué ce perso';
+                    $manager->delete($persoAFrapper);
+                break;
+                case Personnage::PERSO_ENDORMI:
+                    $message = 'Vous êtes endormi, vous ne pouvez frapper';
+                break; 
+            }
+        }
+    }
+}
+elseif (isset($_GET['ensorceler']))
+{
+    if (!isset($perso))
+    {
+        $message = 'merci de créer un personnage ou vous identifier';
+    }
+    else
+    {
+        if ($perso->typePersonnage() != 'magicien')
+        {
+            $message = 'seul les magicien peuvent ensorceler';
+        }
+        else
+        {
+            if (!$manager->exists((int) $_GET['ensorceler']))
+            {
+                $message = 'Le personnage que vous voulez frapper n\'existe pas';
+            }
+            else 
+            {
+                $persoAEnsorceler = $manager->get((int) $_GET['ensorceler']);
+                $retour = $perso->lancerUnSort($persoAEnsorceler);
+
+                switch ($retour)
+                {
+                    case Personnage::CEST_MOI:
+                        $message = 'Mais... pourquoi voulez-vous vous frapper ???';
+                    break;
+                    case Personnage::PERSONNAGE_ENSORCELE:
+                        $message = 'Le personnage a bien été ensorcelé';
+                        $manager->update($perso);
+                        $manager->update($persoAEnsorceler);
+                    break;
+                    case Personnage::PAS_DE_MAGIE:
+                        $message = 'Vous n\'avez pas de magie';
+                        $manager->delete($persoAFrapper);
+                    break;
+                    case Personnage::PERSO_ENDORMI:
+                        $message = 'Vous êtes endormi, vous ne pouvez lancer de sort';
+                    break; 
+                }
+            }
+        }
+    }
+}
+
+if (isset($_GET['reveiller']))
+{
+    if (!isset($perso))
+    {
+        $message = 'merci de créer un personnage ou vous identifier';
+    }
+    else
+    {
+        if (!$manager->exists((int) $_GET['reveiller']))
+        {
+            $message = 'Le personnage que vous voulez reveiller n\'existe pas';
+        }
+        else
+        {
+            $persoAReveiller= $manager->get((int) $_GET['reveiller']);
+    
+            $manager->reveiller($persoAReveiller->id());
+            $message = $persoAReveiller->nom() . ' est reveillé';
+        }
+    }
+}
+?&gt
+
+&lt!DOCTYPE html&gt
+&lthtml&gt
+    &lthead&gt
+        &lttitle&gtmini jeu de combat&lttitle&gt
+        &ltmeta charset="utf-8"&gt
+        &lt;head&gt
+
+        &ltbody&gt
+            &ltform action="" method="post"&gt
+            &ltp&gtNombre de personnage : &lt?php echo $manager-&gtcount(); ?&gt&ltp&gt
+            &ltp&gt
+                &lt?php
+                    if (isset($message))
+                    {
+                        echo $message;
+                    }
+                ?&gt
+            &lt;p&gt
+            &lt?php
+                if (isset($perso))
+                {
+            ?&gt
+                &ltp&gt&lta href="?deconnexion=1"&gtDéconnexion&lt;a&gt&lt;p&gt
+                &ltfieldset&gt
+                    &ltlegend&gtInformation du personnage&lt;legend&gt
+                    &ltp&gt
+                        Nom du personnage : &lt?php echo $perso->nom() ?&gt --- Type : &lt?php echo $perso->typePersonnage() ?&gt&ltbr&gt
+                        Degats : &lt?php echo  $perso->degats() ?&gt -
+                        Experience : &lt?php echo $perso->experience() ?&gt -
+                        Niveau : &lt?php echo $perso->niveau() ?&gt -
+                        Force : &lt?php echo $perso->forcePerso() ?&gt
+                        &lt?php
+                            switch ($perso->typePersonnage())
+                            {
+                                case 'magicien':
+                                    echo 'Magie : ';
+                                break;
+                                case 'guerrier':
+                                    echo 'Protection : ';
+                                break; 
+                            }
+
+                            echo $perso->atout();
+                        ?&gt
+                    &lt;p&gt
+                &lt;fieldset&gt
+
+                &ltfieldset&gt
+                    &ltlegend&gtQui frapper ?&lt;legend&gt
+
+                    &lt?php
+                        $persos = $manager->getList($perso->nom());
+
+                        if (empty($persos))
+                        {
+                            echo 'personne à frapper';
+                        }
+                        else
+                        {
+                            if ($perso->estEndormi())
+                            {
+                                echo 'un magicien vous a endormi, vous allez vous reveiller dans ' . $perso->reveil();
+                            }
+                            else 
+                            {
+                                foreach ($persos as $unPerso)
+                                {
+                                    if ($unPerso->timeEndormi() === 0)
+                                    {
+                                        echo '&lta href="?frapper='. $unPerso-&gtid(). '"&gtfrapper ' . htmlspecialchars($unPerso->nom()) .'&lt;a&gt' . 
+                                        ($perso->typePersonnage() === 'magicien' ? ' - &lta href="?ensorceler=' . $unPerso->id() . '">Ensorceler '. htmlspecialchars($unPerso->nom()) : '') .
+                                        ' &lta&gt(Dégâts : ', $unPerso->degats() . 
+                                        ' - Experience : ' . $unPerso->experience() . 
+                                        ' - Niveau : ' . $unPerso->niveau() . 
+                                        ' - Force : '. $unPerso->forcePerso() . 
+                                        ' - Type : '. $unPerso->typePersonnage() .')&ltbr &gt';
+                                    }
+                                    else
+                                    {
+                                        echo htmlspecialchars($unPerso->nom()) . ' est endormi, impossible de l\'attaquer - &lta href="?reveiller=' . $unPerso->id() . '"&gtReveiller&lta&gt' . '(Dégâts : ' . $unPerso->degats() . 
+                                        ' - Experience : ' . $unPerso->experience() . 
+                                        ' - Niveau : ' . $unPerso->niveau() . 
+                                        ' - Force : '. $unPerso->forcePerso() . 
+                                        ' - Type : '. $unPerso->typePersonnage() .')&ltbr &gt';
+                                    }
+                                }
+                            }
+                        }
+                    ?&gt
+                &ltfieldset&gt
+            
+            &lt?php
+                }
+                else
+                {
+            ?&gt
+            &ltp&gt
+                Nom : &ltinput type="text" name="nom" maxlength="50"&gt
+                Force : 
+                &ltselect type="number" name="forcePerso"&gt
+                    &ltoption&gt5&ltoption&gt
+                    &ltoption&gt10&ltoption&gt
+                    &ltoption&gt15&ltoption&gt
+                &ltselect&gt
+                Type :
+                &ltselect name="typePersonnage"&gt
+                    &ltoption value="magicien"&gtMagicien&ltoption&gt
+                    &ltoption value="guerrier"&gtGuerrier&ltoption&gt
+                &ltselect&gt
+
+                &ltinput type="submit" name="creer" value="creer un personnage"&gt
+                &ltinput type="submit" name="utiliser" value="utiliser un personnage"&gt
+            &ltp&gt
+            &lt?php
+                }
+            ?&gt
+        &ltform&gt
+    &ltbody&gt
+&lthtml&gt
+&lt?php 
+if (isset($perso))
+{
+    $_SESSION['perso'] = $perso;
+}
+            </code></pre>
+        </div>
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+        <p>TP reprenant les principes de la programmation orientée objet avec notions tels que les classes abstraites, interface, le manager de données. Un tuotriel permettant de remettre à jour certaines connaissances.</p>
+
+        <h4 class="mb-3" style="font-weight: bold;">PersonnageManager.php</h4>
+        <p>Le TP am§ne à gérer une BDD en mode POO, belle exercice pour mieux appréhender cette partie dans l'utilisation d'un framework</p>
+        <div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
+            <pre><code class="php">
+&lt?php 
+
+class PersonnageManager
+{
+private $_db;
+
+public function __construct($db)
+{
+    $this->setDb($db);
+}
+
+public function add(Personnage $perso)
+{
+    $q = $this->_db->prepare('INSERT INTO personnages (nom, degats, experience, niveau, forcePerso, typePersonnage, atout) VALUES (:nom, :degats, :experience, :niveau, :forcePerso, :typePersonnage, :atout)');
+    $q->bindValue(':nom', $perso->nom());
+    $q->bindValue(':typePersonnage', $perso->typePersonnage());
+    $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+    $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
+    $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
+    $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
+    $q->bindValue(':atout', $perso->atout(), PDO::PARAM_INT);
+
+    $q->execute();
+
+    $perso->hydrate([
+        'id' => $this->_db->lastInsertId()
+    ]);
+}
+
+public function count()
+{
+    return $this->_db->query('SELECT COUNT(*) FROM personnages')->fetchColumn();
+}
+
+public function delete(Personnage $perso)
+{
+    $this->_db->exec('DELETE FROM personnages WHERE id = ' . $perso->id());
+}
+
+public function exists($info)
+{
+    if (is_int($info))
+    {
+        return (bool) $this->_db->query('SELECT COUNT(*) FROM personnages WHERE id = ' . $info)->fetchColumn(); 
+    }
+
+    $q = $this->_db->prepare('SELECT COUNT(*) FROM personnages WHERE nom = :nom');
+    $q->execute([':nom' => $info]);
+
+    return (bool) $q->fetchColumn();
+}
+
+public function get($info)
+{
+    if (is_int($info))
+    {
+        $q = $this->_db->query('SELECT id, nom, degats, experience, niveau, forcePerso, timeEndormi, typePersonnage, atout FROM personnages WHERE id = ' . $info);
+        $perso = $q->fetch(PDO::FETCH_ASSOC);
+    }
+    else
+    {
+        $q = $this->_db->prepare('SELECT id, nom, degats, experience, niveau, forcePerso, timeEndormi, typePersonnage, atout FROM personnages WHERE nom = :nom');
+        $q->execute([':nom' => $info]);
+
+        $perso = $q->fetch(PDO::FETCH_ASSOC);
+    }
+
+    switch ($perso['typePersonnage'])
+    {
+        case 'guerrier' : return new Guerrier($perso);
+        case 'magicien' : return new Magicien($perso);
+        default: return null;
+    }
+}
+
+public function getList($nom)
+{
+    $persos = [];
+
+    $q = $this->_db->prepare('SELECT id, nom, degats, experience, niveau, forcePerso, timeEndormi, typePersonnage, atout FROM personnages WHERE nom <> :nom ORDER BY nom');
+    $q->execute([':nom' => $nom]);
+
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+    {
+        switch ($donnees['typePersonnage'])
+        {
+            case 'guerrier': $persos[] = new Guerrier($donnees); break;
+            case 'magicien': $persos[] = new Magicien($donnees); break;
+        }
+    }
+
+    return $persos;
+}
+
+public function update(Personnage $perso)
+{
+    $q = $this->_db->prepare('UPDATE personnages SET degats = :degats, timeEndormi = :timeEndormi, atout = :atout WHERE id = :id');
+    $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+    $q->bindValue(':timeEndormi', $perso->timeEndormi(), PDO::PARAM_INT);
+    $q->bindValue(':atout', $perso->atout(), PDO::PARAM_INT); 
+    $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
+
+    $q->execute();
+}
+
+public function reveiller($info)
+{
+    $q = $this->_db->prepare('UPDATE personnages SET timeEndormi = :timeEndormi WHERE id = :id');
+    $q->bindValue(':id', $info, PDO::PARAM_INT);
+    $q->bindValue(':timeEndormi', 0, PDO::PARAM_INT);
+
+    $q->execute();
+}
+
+public function setDb($db)
+{
+    $this->_db = $db;
+}
+}
+            </code></pre>
+        </div>
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+        <h4 class="mb-3" style="font-weight: bold;">Personnage.php</h4>
+        <p>Mise en pratique de la notion de classe abstraite</p>
+        <div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
+            <pre><code class="php">
+&lt?php 
+
+abstract class Personnage 
+{
+    protected $id;
+    protected $atout;
+    protected $nom;
+    protected $degats;
+    protected $experience;
+    protected $niveau;
+    protected $forcePerso;
+    protected $timeEndormi;
+    protected $typePersonnage;
+
+
+    const CEST_MOI = 1;
+    const PERSONNAGE_FRAPPE = 2;
+    const PERSONNAGE_TUE = 3;
+    const PERSONNAGE_ENSORCELE = 4;
+    const PAS_DE_MAGIE = 5;
+    const PERSO_ENDORMI = 6;
+
+    public function __construct(array $donnees)
+    {
+        $this->hydrate($donnees);
+        $this->typePersonnage = strtolower(static::class);
+    }
+
+    public function hydrate($donnees)
+    {
+        foreach ($donnees as $key => $value)
+        {
+            $method = 'set' . ucfirst($key);
+
+            if (method_exists($this, $method))
+            {
+                $this->$method($value);
+            }
+        }
+    }
+
+    public function nomValide()
+    {
+        return !empty($this->nom);
+    }
+
+    public function estEndormi()
+    {
+        return $this->timeEndormi > time(); 
+    }
+
+    public function frapper(Personnage $perso)
+    {
+        if ($perso->id() == $this->id)
+        {
+            return self::CEST_MOI;
+        }
+
+        if ($perso->estEndormi())
+        {
+            return self::PERSO_ENDORMI;
+        }
+        $this->augmenterExperience();
+        return $this->recevoir($perso);
+    }
+    
+    public function recevoir(Personnage $perso)
+    {
+        if ($this->forcePerso() == 0)
+            $perso->degats += 1;
+        else
+            $perso->degats += $this->forcePerso();
+
+        if ($perso->degats >= 100)
+        {
+            return self::PERSONNAGE_TUE;
+        }
+
+        return self::PERSONNAGE_FRAPPE;
+    }
+
+
+    public function augmenterExperience()
+    {
+        if ($this->forcePerso() == 0)
+            $this->experience += 1;
+        else
+            $this->experience += $this->forcePerso;
+            
+        if ($this->experience >= 100)
+        {
+            $this->augmenterPersonnage();
+            $this->experience = 0;
+        }
+    }
+
+    public function reveil()
+    {
+        $secondes = $this->timeEndormi;
+        $secondes -= time();
+        
+        $heures = floor($secondes / 3600);
+        $secondes -= $heures * 3600;
+        $minutes = floor($secondes / 60);
+        $secondes -= $minutes * 60;
+        
+        $heures .= $heures <= 1 ? ' heure' : ' heures';
+        $minutes .= $minutes <= 1 ? ' minute' : ' minutes';
+        $secondes .= $secondes <= 1 ? ' seconde' : ' secondes';
+        
+        return $heures . ', ' . $minutes . ' et ' . $secondes;
+    }
+    
+
+    public function augmenterPersonnage()
+    {
+        $this->niveau++;
+        $this->forcePerso += 5;
+
+        $this->atout < 4 ? $this->atout += 1 : '';
+    }
+
+    public function id() { return $this->id; }
+    public function nom() { return $this->nom; }
+    public function degats() { return $this->degats; }
+    public function experience () { return $this->experience; }
+    public function niveau() { return $this->niveau; }
+    public function forcePerso() { return $this->forcePerso; }
+    public function atout() { return $this->atout; }
+    public function timeEndormi() { return $this->timeEndormi; }
+    public function typePersonnage() { return $this->typePersonnage; }
+
+    public function setId($id)
+    {
+        $id = (int) $id;
+
+        if ($id > 0)
+        {
+            $this->id = $id;
+        }
+    }
+
+    public function setAtout($atout) 
+    {
+        $atout = (int) $atout;
+
+        if ($atout >= 0 && $atout <= 100)
+            $this->atout = $atout;
+    }
+
+    public function setTimeEndormi($time)
+    {
+        $this->timeEndormi = (int) $time;
+    }
+
+    public function setNom($nom)
+    {
+        if (is_string($nom))
+            $this->nom = $nom;
+    }
+
+    public function setDegats($degats)
+    {
+        $degats = (int) $degats;
+
+        if ($degats >= 0 && $degats <= 100)
+            $this->degats = $degats;
+    }
+
+    public function setExperience($experience)
+    {
+        $experience = (int) $experience;
+
+        if ($experience >= 0 && $experience <= 100)
+            $this->experience = $experience;
+    }
+
+    public function setNiveau($niveau)
+    {
+        $niveau = (int) $niveau;
+
+        if ($niveau >= 0)
+            $this->niveau = $niveau;
+    }
+
+    public function setForcePerso($forcePerso)
+    {
+        $forcePerso = (int) $forcePerso;
+
+        if ($forcePerso >= 0)
+            $this->forcePerso = $forcePerso;
+    }
+}
+            </code></pre>
+        </div>
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+    
+<h4 class="mb-3" style="font-weight: bold;">Guerrier.php</h4>
+<p>Un des personnages qui hérite de la classe abstraite Personnage.php</p>
+<div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
+    <pre><code class="php">
+&lt?php 
+
+class Guerrier extends Personnage
+{
+    protected $protection;
+
+    public function __construct(array $donnees)
+    {
+        parent::__construct($donnees);
+    }
+
+    public function protection() { return $this->protection; }
+
+    public function recevoirDegats(Personnage $perso)
+    {
+        if ($this->degats() >= 0 && $this->degats() <= 25)
+            $this->protection = 4;
+        elseif ($this->degats() >= 25 && $this->degats() <= 50)
+            $this->protection = 3;
+        elseif ($this->degats() >= 50 && $this->degats() <= 75)
+            $this->protection = 2;
+        elseif ($this->degats() >= 75 && $this->degats() <= 90)
+            $this->protection = 1;
+        else
+            $this->protection = 0;
+
+        $perso->_degats += $this->_forcePerso - $this->protection;
+
+        if ($perso->_degats >= 100)
+        {
+            return self::PERSONNAGE_TUE;
+        }
+
+        return self::PERSONNAGE_FRAPPE;
+    }
+
+   
+}
+            </code></pre>
+        </div>
+        {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+{# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
+<h4 class="mb-3" style="font-weight: bold;">Guerrier.php</h4>
+<p>Autre personnages héritant de la classe abstraite Personnage.php</p>
+<div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
+    <pre><code class="php">
+&lt?php 
+
+class Magicien extends Personnage
+{
+    protected $atout;
+
+    const MULTIPLICATEUR_TEMPS = 1;
+
+    public function __construct(array $donnees)
+    {
+        parent::__construct($donnees);
+    }
+
+    public function atout() { return $this->atout; }
+
+    public function lancerUnSort(Personnage $perso)
+    {
+        if ($this->degats() >= 0 && $this->degats() <= 25)
+            $this->atout = 4;
+        elseif ($this->degats() >= 25 && $this->degats() <= 50)
+            $this->atout = 3;
+        elseif ($this->degats() >= 50 && $this->degats() <= 75)
+            $this->atout = 2;
+        elseif ($this->degats() >= 75 && $this->degats() <= 90)
+            $this->atout = 1;
+        else
+            $this->atout = 0;
+            
+
+        if ($this->id == $perso->id())
+        {
+            return self::CEST_MOI;
+        }
+
+        if ($this->atout == 0)
+        {
+            return self::PAS_DE_MAGIE;
+        }
+
+        if ($this->estEndormi())
+        {
+            return self::PERSO_ENDORMI;
+        }
+
+        $perso->timeEndormi = time() + ($this->atout * 6) * 3600;
+
+        return self::PERSONNAGE_ENSORCELE;
+    }
+}
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

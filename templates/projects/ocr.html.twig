@@ -7,6 +7,7 @@
 	{% include "navbar.html.twig" %}   
     <section class="project-wrapper single-col-max-width py-5 px-4 mx-auto">
 	        <div class="section-row">
+				<div class="mb-5"><a class="btn btn-primary" href="{{ path("allProjects") }}" target="_blank"><i class="fas  fa-arrow-left mr-2"></i>Revenir à la liste des projets</a></div>
 		        <div class="mb-5"><img class="img-fluid" src="{{ asset("images/projects/ocr-figure-main.jpg")  }}"></div>
 		        <h3 class="section-title">Le projet</h3>
 		        <p>
@@ -14,27 +15,30 @@
 					Bien que cette plateforme reste efficace pour un développeur qui débute, elle devient limitante de par l'évolution rapide des différentes technologies.
 				</p>
 				
-					<!-- <a class="btn btn-primary" href=""><i class="fas fa-external-link-alt mr-2"></i>Voir les tutoriels</a> -->
-					<div class="btn-group mb-5" style="width: 30% !important;">
-						<button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="fas fa-external-link-alt"></i>
-							Voir les tutoriels<span class="caret"></span></button>
-						<ul class="dropdown-menu scrollable-menu" role="menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-						</ul>
-					</div>
+				<div class="btn-group mb-5" style="width: 30% !important;">
+					<button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="fas fa-external-link-alt"></i>
+						Voir les TP<span class="caret"></span></button>
+					<ul class="dropdown-menu scrollable-menu" role="menu">
+						<li><a href="{{ path("choose_tp", {"tp" : "combat"}) }}">Tp combat</a></li>
+						<li><a href="{{ path("choose_tp", {"tp" : "news"}) }}">Tp news</a></li>
+					</ul>
+				</div>
+
+				<div class="section-row">
+					<h3 class="section-title">Autre sujets traités</h3>					
+					<ul class="mb-5 ml-md-5">
+					  <li class="mb-3">DateTime</li>
+					  <li class="mb-3">Closures</li>
+					  <li class="mb-3">Design pattern</li>
+					  <li class="mb-3">Héritage</li>
+					  <li class="mb-3">Injection de dépendances</li>
+					  <li class="mb-3">Iterator</li>
+					  <li class="mb-3">MVC</li>
+					  <li class="mb-3">Pattern Observer/Strategy</li>
+					  <li class="mb-3">Singleton</li>
+					  <li class="mb-3">INterfaces/Traits</li>
+					</ul>			
+				</div><!--//section-row-->
 		        
 		        <div id="project-carousel" class="theme-carousel carousel slide mb-5" data-ride="carousel">
 			        <ol class="carousel-indicators">
