@@ -1,0 +1,34 @@
+{% extends 'sites/udemyAnimaux/baseAnimaux.html.twig' %}
+
+{% block title %}Famille{% endblock %}
+
+{% block monTitre %}Voici la fiche de {{ famille.libelle }}{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-12 border-bottom border-primary m-3 p-3">
+        <h2>{{ famille.libelle|capitalize }}</h2>
+        <div>{{ famille.description }}</div>   
+    </div>
+</div>
+<div class="row">
+    {% for animal in famille.animaux %}
+        <div class="col-12 cold-md-6 col-lg-6 p-2">
+            <div class="align-items-center">
+                <div class=" text-center">
+                    <img src="{{ asset("images/projects/animaux/" ~ animal.image)}}" alt="" class="img-fluid">
+                </div>
+                <div class="text-center">
+                    <div>
+                        <h2><a href="{{ path("afficher_animal", {'id' : animal.id }) }}">{{ animal.nom }}</a></h2>
+                        <div>{{ animal.description }}</div>
+                        {% for continent in animal.continents %}
+                            <a href="{{ path("afficher_continent", {'id' : continent.id }) }}" class="btn btn-warning">{{ continent.libelle }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    
+{% endblock %}

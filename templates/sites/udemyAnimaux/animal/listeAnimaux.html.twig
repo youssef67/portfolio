@@ -1,0 +1,26 @@
+{% extends 'sites/udemyAnimaux/baseAnimaux.html.twig' %}
+
+{% block title %}Animal{% endblock %}
+
+{% block monTitre %}Voici la liste des animaux {% endblock %}
+{% block body %}
+<div class="row align-items-center text-center">
+    {% for animal in animaux %}
+    <div class="col-12 cold-md-6 col-lg-4 p-3">
+        <div class="col">
+            <img src="{{ asset("images/projects/animaux/" ~ animal.image)}}" alt="">
+        </div>
+        <div class="m-2">
+            <h2><a href="{{ path("afficher_animal", { 'id' : animal.id })}}">{{ animal.nom }}</a></h2>
+            <div>{{ animal.description }}</div>
+        </div>
+        <div class="m-2"><a href="{{ path("afficher_famille", { 'id' : animal.famille.id })}}" class="btn btn-primary">{{ animal.famille.libelle }}</a></div>
+        <div class="m-2">
+            {% for continent in animal.continents %}
+                <a href="" class="btn btn-warning">{{ continent.libelle }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

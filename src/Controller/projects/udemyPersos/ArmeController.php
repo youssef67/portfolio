@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArmeController extends AbstractController
 {
     /**
-     * @Route("/udemy/armes", name="armes")
+     * @Route("/tp_personnage/armes", name="liste_armes")
      */
     public function armes()
     {
@@ -21,7 +21,7 @@ class ArmeController extends AbstractController
     }
 
     /**
-     * @Route("/arme/{nom}", name="afficher_arme")
+     * @Route("/tp_personnage/arme/{nom}", name="afficher_arme")
      */
     public function getArmeParNom($nom)
     {

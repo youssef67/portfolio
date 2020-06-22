@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PersonnageController extends AbstractController
 {
     /**
-     * @Route("/udemy/personnages", name="personnages")
+     * @Route("/tp_personnage/personnages", name="liste_personnages")
      */
     public function personnages()
     {
@@ -21,7 +21,7 @@ class PersonnageController extends AbstractController
     }
 
     /**
-     * @Route("/udemy/personnages/{nom}", name="afficher_personnage")
+     * @Route("/tp_personnage/personnages/{nom}", name="afficher_personnage")
      */
     public function afficherPerso($nom)
     {
