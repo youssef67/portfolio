@@ -1,0 +1,24 @@
+{% extends 'basePersos.html.twig' %}
+
+{% block title %}Armes{% endblock %}
+
+{% block monTitre %}La liste des armes{% endblock %}
+
+{% block body %}
+<table class="table">
+    <tr class="thead-dark">
+        <th>image</th>
+        <th>Nom</th>
+        <th>Descriptif</th>
+        <th>Dégats</th>
+    </tr>
+    {% for arme in armes %}
+        <tr>
+            <td><img src="{{ asset('images/projects/armes/' ~ arme.nom|replace({'é':'e'}) ~ '.png') }}"</td>
+            <td><a href="{{ path('afficher_arme', {'nom':arme.nom|replace({'é':'e'}) })|lower }}">{{ arme.nom }}</a></td>
+            <td>{{ arme.descriptif}}</td>
+            <td>{{ arme.degats}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

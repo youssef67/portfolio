@@ -6,32 +6,29 @@
 Liste des personnages
 {% endblock %}
 {% block body %}
-<table class="table">
-    <tr class="thead-dark">
-        <th>Image</th>
-        <th>Nom</th>
-        <th>Age</th>
-        <th>Sexe</th>
-        <th>force</th>
-        <th>agilité</th>
-        <th>intelligence</th>
-    </tr>
+
+<div class="row align-items-center m-2 p-2">
     {% for player in players %}
-        <tr>
-            <td><img src="{{ asset("images/projects/personnages/" ~ player.nom ~ ".png") }}"></td>
-            <td><a href="{{ path("afficher_personnage", {'nom' : player.nom|lower }) }}">{{ player.nom }}</a></td>
-            <td>{{ player.age }}</td>
-            <td>
-                {% if player.sexe %}
-                    Homme
-                {% else %}
-                    Femme
-                {% endif %}
-            </td>
-            <td>{{ player.carac.force }}</td>
-            <td>{{ player.carac.agi }}</td>
-            <td>{{ player.carac.intel }}</td>
-        </tr>
+
+    <div class="col-4">
+        <img src="{{ asset("images/projects/personnages/" ~ player.nom ~ ".png") }}" alt="">
+        <div>
+            <h2><a href="{{ path("afficher_personnage", {'nom' : player.nom|lower }) }}">{{ player.nom }}</a></h2>
+            <p>Caractéristiques : </p>
+            <div> {% if player.sexe %}
+                Homme
+            {% else %}
+                Femme
+            {% endif %}</a></div>
+            <div>
+               <ul>
+                   <li>{{ player.carac.force }}</li>
+                   <li>{{ player.carac.agi }}</li>
+                   <li>{{ player.carac.intel }}</li>
+               </ul>
+            </div>
+        </div>
+    </div>
     {% endfor %}    
-</table>
+</div>
 {% endblock %}

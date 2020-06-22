@@ -9,16 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class PersonnageController extends AbstractController
 {
     /**
-     * @Route("/udemy/accueil", name="accueil")
-     */
-    public function personnage()
-    {
-        return $this->render('sites/udemyPersos/home.html.twig', [
-            'route' => 'udemyPersos'
-        ]);
-    }
-
-    /**
      * @Route("/udemy/personnages", name="personnages")
      */
     public function personnages()
