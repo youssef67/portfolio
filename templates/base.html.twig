@@ -35,7 +35,10 @@
 
   
     <body>
-        {% block body %}{% endblock %}
+        <h1 class="rounded border border-dark bg-primary p-2 m-2 text-white">{% block monTitre %}{% endblock %}</h1>
+        {% block body %}
+        
+        {% endblock %}
         {% include "footer.html.twig" %}
         {% block javascripts %}{% endblock %}
          <!-- Javascript -->          

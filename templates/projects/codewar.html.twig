@@ -11,20 +11,22 @@
 		        <div class="mb-5"><img class="img-fluid" src="{{ asset("images/projects/codewar-figure-main.jpg")  }}"></div>
 		        <h3 class="section-title">Le projet</h3>
 		        <p>Contrairement à l'usage d'openclassroom ou udemy, codewar aiguise ma logique via des problèmes algorithmiques.</p>
-		        
-		        <div class="btn-group mb-5" style="width: 30% !important;">
-					<button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="fas fa-external-link-alt"></i>
-						Voir les katas<span class="caret"></span></button>
-					<ul class="dropdown-menu scrollable-menu" role="menu">
-						<li><a href="{{ path("choose_kata", {"kata" : "ipValidation"}) }}">IPvalidation</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "maximumDifference"}) }}">MaximumDifference</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "divisor"}) }}">Divisors</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "multiple3or5"}) }}">Multiple3or5</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "pileOfCube"}) }}">PileOfCube</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "shortestWord"}) }}">ShortestWord</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "tortoiseRacing"}) }}">TortoiseRacing</a></li>
-						<li><a href="{{ path("choose_kata", {"kata" : "uniqueOrder"}) }}">UniqueOrder</a></li>
-					</ul>
+
+				<div class="btn-group mb-5">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-external-link-alt"></i>
+						Voir les tutoriels
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "ipValidation"}) }}">IPvalidation</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "maximumDifference"}) }}">MaximumDifference</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "divisor"}) }}">Divisors</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "ultiple3or5"}) }}">Multiple3or5</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "PpleOfCube"}) }}">PileOfCube</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "shortestWord"}) }}">ShortestWord</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "tortoiseRacing"}) }}">TortoiseRacing</a>
+						<a class="dropdown-item" href="{{ path("choose_kata", {"kata" : "uniqueOrder"}) }}">UniqueOrder</a>
+					</div>
 				</div>
 
 		        <div id="project-carousel" class="theme-carousel carousel slide mb-5" data-ride="carousel">

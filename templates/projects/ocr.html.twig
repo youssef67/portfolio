@@ -15,13 +15,15 @@
 					Bien que cette plateforme reste efficace pour un développeur qui débute, elle devient limitante de par l'évolution rapide des différentes technologies.
 				</p>
 				
-				<div class="btn-group mb-5" style="width: 30% !important;">
-					<button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="fas fa-external-link-alt"></i>
-						Voir les TP<span class="caret"></span></button>
-					<ul class="dropdown-menu scrollable-menu" role="menu">
-						<li><a href="{{ path("choose_tp", {"tp" : "combat"}) }}">Tp combat</a></li>
-						<li><a href="{{ path("choose_tp", {"tp" : "news"}) }}">Tp news</a></li>
-					</ul>
+				<div class="btn-group mb-5">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-external-link-alt"></i>
+						Voir les tutoriels
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{{ path("choose_tp", {"tp" : "combat"}) }}">Tp combat</a>
+						<a class="dropdown-item" href="{{ path("choose_tp", {"tp" : "news"}) }}">Tp news</a>
+					</div>
 				</div>
 
 				<div class="section-row">

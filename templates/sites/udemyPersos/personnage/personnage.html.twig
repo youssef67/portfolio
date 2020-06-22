@@ -1,0 +1,32 @@
+{% extends 'basePersos.html.twig' %}
+
+{% block title %}Personnages{% endblock %}
+
+{% block monTitre %}
+Personnage {{ perso.nom }}
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-2">
+            <img src="{{ asset('images/projects/personnages/' ~ perso.nom ~ '.png') }}" alt="">
+        </div>
+        <div class="col">
+            <h2><div>{{ perso.nom}}</div></h2>
+            <div>{{ perso.age }}</div>
+            <div>
+                {% if perso.sexe %}
+                    homme
+                {% else %}
+                    femme
+                {% endif %}
+            </div>    
+            <h3>Les caractéristiques</h3>
+                <ul>
+                    <li>{{ perso.carac.force }}</li>
+                    <li>{{ perso.carac.agi }}</li>
+                    <li>{{ perso.carac.intel }}</li>
+                </ul>
+        </div>
+    </div>
+
+{% endblock %}
