@@ -1,0 +1,29 @@
+{% extends 'sites/udemyAnimaux/baseAnimaux.html.twig' %}
+
+{% block title %}Personnes{% endblock %}
+
+{% block monTitre %}Voici la fiche de {{ personne.nom }}{% endblock %}
+{% block body %}
+<div class="row align-items-center m-2 p-2">
+    {% for dispose in personne.disposes %}
+        <div class="col-12 cold-md-6 col-lg-6 p-2 text-center ">
+            <img src="{{ asset("images/projects/animaux/" ~ dispose.animal.image)}}" alt="">
+        </div>
+        <div class="col-12 cold-md-6 col-lg-6 p-2 text-center">
+            <div>
+                <h2 class="m-2 p-2"><a href="{{ path("afficher_animal", {'id' : dispose.animal.id }) }}">{{ dispose.animal.nom }}</a></h2>
+                <div class="m-2 p-2">{{ dispose.animal.description }}</div>
+                <div class="m-2 p-2"><a href="{{ path("afficher_famille", {'id' : dispose.animal.famille.id})}}" class="btn btn-primary">{{ dispose.animal.famille.libelle }}</a></div>
+                <div class="m-2 p-2">
+                    {% for continent in dispose.animal.continents %}
+                        <a href="{{ path("afficher_continent", {'id' : continent.id }) }}" class="btn btn-warning">{{ continent.libelle }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="m-2 p-2 border-bottom border-primary">
+                Nombre : {{ dispose.nb }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

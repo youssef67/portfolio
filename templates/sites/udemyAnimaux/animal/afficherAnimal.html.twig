@@ -4,26 +4,32 @@
 
 {% block monTitre %}Voici la fiche de {{ animal.nom }}{% endblock %}
 {% block body %}
-<div class="row">
-    <div class="col-2">
+<div class="row align-items-center">
+    <div class="col-6 text-center">
         <img src="{{ asset("images/projects/animaux/" ~ animal.image)}}" alt="">
+        <h2 class="m-2 p-2">{{ animal.nom }}</h2>
     </div>
-    <div class="col-auto">
-        <h2>{{ animal.nom }}</h2>
-        <div>{{ animal.description}}</div>
-        <div>Dangereux : 
+    <div class="col-auto text-center">
+        <div class="m-2 p-2">{{ animal.description}}</div>
+        <div class="m-2 p-2">Dangereux : 
             {% if animal.dangereux %}
                 <span class="badge badge-danger">OUI</span>
             {% else %}
             <span class="badge badge-success">NON</span>
             {% endif %}
         </div>
-        <div>Poids : {{ animal.poids }} Kg</div>
-        <div>Famille : <a href="{{ path("afficher_famille", {'id' : animal.famille.id })}}" class="btn btn-primary">{{ animal.famille.libelle }}</a></div>
+        <div class="m-2 p-2">Poids : {{ animal.poids }} Kg</div>
+        <div class="m-2 p-2">Famille : <a href="{{ path("afficher_famille", {'id' : animal.famille.id })}}" class="btn btn-primary">{{ animal.famille.libelle }}</a></div>
         <div class="m-2 p-2">
             {% for continent in animal.continents %}
                 <a href="{{ path("afficher_continent", {'id' : continent.id }) }}" class="btn btn-warning">{{ continent.libelle }}</a>
             {% endfor %}
+        </div>
+        <div class="m-2 p-2">
+            {% for dispose in animal.disposes %}
+            <a class="btn btn-info" href="{{ path("afficher_personne", {"id" : dispose.personne.id })}}" class="btn btn-info">{{ dispose.personne.nom }}</a>
+            {% endfor %}    
+
         </div>
     </div>    
 </div>
