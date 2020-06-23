@@ -16,7 +16,9 @@ class AlimentController extends AbstractController
         $aliments = $repository->findAll();
 
         return $this->render('sites/udemyRecettes/aliment/listeAliments.html.twig', [
-            'aliments' => $aliments
+            'aliments' => $aliments,
+            'isCalorie' => false,
+            'isGlucide' => false
         ]);
     }
 

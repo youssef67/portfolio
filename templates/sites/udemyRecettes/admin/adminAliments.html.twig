@@ -1,0 +1,48 @@
+{% extends 'sites/udemyRecettes/baseRecettes.html.twig' %}
+
+{% block title %}Administration TP recette{% endblock %}
+
+{% block monTitre %}Liste des aliments / Admninistrateur{% endblock %}
+{% block body %}
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+<a class="btn btn-success text-white m-2" href="{{ path("admin_aliment_ajout") }}">Ajouter</a>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Image</th>
+            <th scope="col">Aliment</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Calorie</th>
+            <th scope="col">Proteine</th>
+            <th scope="col">Glucide</th>
+            <th scope="col">Lipides</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aliment in aliments %}
+        <tr>
+            <td><img src="{{ asset("images/projects/" ~ aliment.image) }}" alt="" style="height: 100px; width: 100px;"></td>
+            <td>{{ aliment.nom }}</td>
+            <td>{{ aliment.prix }}</td>
+            <td>{{ aliment.calorie }}</td>
+            <td>{{ aliment.proteine }}</td>
+            <td>{{ aliment.glucide }}</td>
+            <td>{{ aliment.lipide }}</td>
+            <td>
+                <a href="{{ path("admin_aliment_modification", {"id" : aliment.id })}}" class="btn btn-secondary">Modifier</a>
+                <form method="POST" style="display:inline-block" action="{{ path("admin_aliment_suppression", {"id" : aliment.id })}}" onsubmit="return confirm('confirmer la suppression ?')">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ aliment.id)}}">
+                    <input type="submit" class="btn btn-danger" value="supprimer">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
