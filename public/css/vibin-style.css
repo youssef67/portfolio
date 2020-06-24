@@ -242,6 +242,11 @@
   
   @media screen and (max-width: 767px) {
   
+    .howitworks h1 
+    {
+      font-size: 27em;
+    }
+
     .banner {
         height: 100%;  
     }
@@ -303,6 +308,11 @@
         font-weight: bold;
         margin-left: 15px;
         margin-right: 15px;
+    }
+
+    .title-how-it-works
+    {
+      font-size: 20em !important;
     }
   }
   
