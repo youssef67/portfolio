@@ -8,12 +8,17 @@
 <section class="single-post-wrapper single-col-max-width py-5 px-4 mx-auto">
     <div class="section-row">
         <div class="mb-5"><a class="btn btn-primary" href="{{ path("project", {'project' : 'ocr'}) }}" target="_blank"><i class="fas  fa-arrow-left mr-2"></i>Revenir au projet</a></div>
-
+        <div class="progress" style="height: 30px;">
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%" >
+              <span style="font-weight: bold; font-size: 1.5em;"> Réalisé à 100 %</span>
+            </div>
+        </div>
     </div>
 
     <div class="divider"><span></span><span>TP combat</span><span></span></div>
     <div class="section-row">
-        <p>TP reprenant les principes de la programmation orientée objet avec notions tels que les classes abstraites, interface, le manager de données. Un tuotriel permettant de remettre à jour certaines connaissances.</p>
+        <p>TP reprenant les principes de la programmation orientée objet avec des notions tels que les classes abstraites, les interfaces, le manager de données,... Le tuotriel permet de remettre à jour certaines connaissances.</p>
 
         <h4 class="mb-3" style="font-weight: bold;">Index.php</h4>
         <p>Page mettant en place la logique front avec l'ensemble des vérifications nécessaires et la mise en place d'un formulaire.</p>
@@ -366,10 +371,8 @@ if (isset($perso))
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
-        <p>TP reprenant les principes de la programmation orientée objet avec notions tels que les classes abstraites, interface, le manager de données. Un tuotriel permettant de remettre à jour certaines connaissances.</p>
-
         <h4 class="mb-3" style="font-weight: bold;">PersonnageManager.php</h4>
-        <p>Le TP am§ne à gérer une BDD en mode POO, belle exercice pour mieux appréhender cette partie dans l'utilisation d'un framework</p>
+        <p>Le TP amène à gérer une BDD en mode POO. Belle exercice pour mieux appréhender cette partie dans l'utilisation d'un framework</p>
         <div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
             <pre><code class="php">
 &lt?php 
@@ -734,9 +737,8 @@ abstract class Personnage
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
-    
 <h4 class="mb-3" style="font-weight: bold;">Guerrier.php</h4>
-<p>Un des personnages qui hérite de la classe abstraite Personnage.php</p>
+<p>Type de personnage qui hérite de la classe abstraite Personnage.php</p>
 <div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
     <pre><code class="php">
 &lt?php 
@@ -800,8 +802,8 @@ class Guerrier extends Personnage
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
 {# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ #}
-<h4 class="mb-3" style="font-weight: bold;">Guerrier.php</h4>
-<p>Autre personnages héritant de la classe abstraite Personnage.php</p>
+<h4 class="mb-3" style="font-weight: bold;">Magicien.php</h4>
+<p>Autre personnage héritant de la classe abstraite Personnage.php</p>
 <div class="mb-5" style="max-height: 500px; overflow:scroll; border: 2px solide red">
     <pre><code class="php">
 &lt?php 

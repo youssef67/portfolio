@@ -8,9 +8,9 @@
         <div class="text-center">
             <img class="profile-small d-inline-block mx-auto rounded-circle mb-2" src="{{ asset("/images/profile.jpg") }}" alt="">
         </div>
-        <h3 class="section-title font-weight-bold text-center mb-2">Intéressé par mon profil pour intégrer votre équipe ?</h3>
-        <div class="section-intro mx-auto text-center mb-3">
-            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg" href="mailto:you.moudni@gmail.com">you.moudni@gmail.com</a> 
+        <h3 class="section-title font-weight-bold text-center mb-2 {{ route == 'home' ? 'text-secondary' : ''}}">Intéressé par mon profil pour intégrer votre équipe ?</h3>
+        <div class="section-intro mx-auto text-center mb-3 {{ route == 'home' ? 'text-secondary' : ''}}">
+            De nature entreprenante et motivé à devenir chaque jour plus compétent, je serais ravi d'échanger sur mon parcours et mes aspirations. N'hésitez pas à me contacter par mail, <a class="link-on-bg {{ route == 'home' ? 'color-specific' : 'text-secondary'}}" href="mailto:you.moudni@gmail.com">you.moudni@gmail.com</a>.
         </div>
         <div class="map-responsive mx-auto text-center mb-3" >
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.2501223653157!2d7.700120515528012!3d48.58590952780767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796b7d3bc1a93c5%3A0x8aa17f761d59bab6!2s10%20Rue%20Lucie%20Berger%2C%2067200%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1592313167640!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>    
