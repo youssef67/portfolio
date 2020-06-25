@@ -1,0 +1,2 @@
+RewriteCond %{REQUEST_URI} !^/portfolio/public/
+RewriteRule ^(.*)$ /portfolio/public/$1 [L]

@@ -4,6 +4,7 @@
 
 {% block monTitre %}Voici la liste des animaux {% endblock %}
 {% block body %}
+<a href="{{ path("project", {'project' : 'udemy'}) }}"><button class="BackButtonUdemy m-2 p-2">Retour au portfolio</button></a>
 <div class="row align-items-center text-center">
     {% for animal in animaux %}
     <div class="col-12 cold-md-6 col-lg-4 p-3">

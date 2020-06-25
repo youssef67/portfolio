@@ -9,13 +9,19 @@
     <section class="project-wrapper single-col-max-width py-5 px-4 mx-auto">
 	        <div class="section-row">
 				<div class="mb-5"><a class="btn btn-primary" href="{{ path("allProjects") }}" target="_blank"><i class="fas  fa-arrow-left mr-2"></i>Revenir à la liste des projets</a></div>
+				<div class="progress m-2" style="height: 30px;">
+					<div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="100"
+						aria-valuemin="0" aria-valuemax="100" style="width:100%">
+						<span style="font-weight: bold; font-size: 1.5em;"> Réalisé à 100 % %</span>
+					</div>
+				</div>
 		        <div class="mb-5"><img class="img-fluid" src="{{ asset("images/projects/vibin-figure-main.jpg")  }}"></div>
 		        <h3 class="section-title">Le projet</h3>
 		        <p>
 					Développement d'un outil permettant de proposer et voter des musiques que les viewers souhaitent écouter, en direct pendant le stream.
 					Les viewers pouvaient soutenir leurs streamers, via une monnaie virtuelle appelée VIBES donnant plus de votes à l'acheteur. Pour chaque musique diffusée et votée avec les VIBES, le streamer perçoit une somme équivalent aux nombre de VIBES utilisés.
 				</p>
-		        <div class="mb-5"><a class="btn btn-primary" href="{{path("site_vibin")}}" target="_blank"><i class="fas fa-external-link-alt mr-2"></i> Voir le site</a></div>
+		        {# <div class="mb-5"><a class="btn btn-primary" href="{{path("site_vibin")}}" target="_blank"><i class="fas fa-external-link-alt mr-2"></i> Voir le site</a></div> #}
 		        <div id="project-carousel" class="theme-carousel carousel slide mb-5" data-ride="carousel">
 			        <ol class="carousel-indicators">
 						<li data-target="#project-carousel" data-slide-to="0" class="active"></li>

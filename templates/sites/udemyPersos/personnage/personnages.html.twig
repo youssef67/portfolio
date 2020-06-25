@@ -6,7 +6,7 @@
 Liste des personnages
 {% endblock %}
 {% block body %}
-
+<a href="{{ path("project", {'project' : 'udemy'}) }}"><button class="BackButtonUdemy m-2 p-2">Retour au portfolio</button></a>
 <div class="row align-items-center m-2 p-2">
     {% for player in players %}
 
